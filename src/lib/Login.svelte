@@ -1,6 +1,6 @@
 <div class="background">
-    <div class="outside">
-        <div class="content">
+    <div class="new_user_box">
+        <div class="new_user_content">
             <label for="uname"><b>Create New User</b></label>
             <input type="text" placeholder="Enter Username" name="uname" required>
             <button on:click={nameFunction}>Create</button> <!--When you click the button it activates nameFunction bellow-->
@@ -38,7 +38,7 @@ label{
 
 }
 
-.outside{
+.new_user_box{
     width: 40%;
     display: flex;
     flex-direction: row;
