@@ -1,11 +1,6 @@
 <div class="shaper" />
 
 <style>
-  /* not being used */
-  html, 
-  body {
-  }
-  
   .shaper {
     background: rgb(0, 0, 0) url(option2.jpg) repeat 0 0;
     height: 120vh;
