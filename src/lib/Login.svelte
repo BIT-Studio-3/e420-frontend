@@ -3,7 +3,7 @@
         <div class="content">
             <label for="uname"><b>Create New User</b></label>
             <input type="text" placeholder="Enter Username" name="uname" required>
-            <button on:click={nameFunction}>Create</button>
+            <button on:click={nameFunction}>Create</button> <!--When you click the button it activates nameFunction bellow-->
         </div>
 
     </div>
@@ -12,7 +12,7 @@
 <script>
 
 function nameFunction(){
-  
+  // Redirecting to a different page when the button is clicked
     window.location.href = "/mainPage";
   }
   
@@ -20,6 +20,7 @@ function nameFunction(){
 </script>
 
 <style>
+  /* Applying box-sizing and margin properties to all elements */
   *{
     box-sizing: border-box;
     margin: 0;
@@ -64,10 +65,14 @@ button {
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
-  cursor: pointer;
+
+  /*displays a pointer cursor only when hovering over the 
+  button helps to show the user that they are in fact on the interactive button*/
+  cursor: pointer; 
   width: 100%;
 }
 
+/* hover effect for button */
 button:hover {
   opacity: 0.8;
 }

@@ -6,7 +6,7 @@
                     <div>Credits</div>
                 </h5>      
             </div>
-            <ul class="explorelist17">
+            <ul class="explorelist17"> <!--Api's-->
                 <li class="explorelist18"><a style=text-decoration:none href="https://spacetraders.io/">API from spacetraders.io</a></li>
                 <li class="explorelist18">Designed by Silverside Games</li>
                 <li class="explorelist18">2023</li>
@@ -52,6 +52,7 @@ line-height: 1.4em;
 padding: 0;
 }
 
+/* API styling*/
 .explorelist17{
 padding: 0;
 list-style: none;

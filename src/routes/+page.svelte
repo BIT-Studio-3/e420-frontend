@@ -35,7 +35,7 @@ import Location from "../lib/components/Location.svelte";
   <div class="row">
     <div class="column">
       <div class="buttons">
-        <a href="/" class="button" on:click={marketplace}>marketplace</a>
+        <a href="/" class="button" on:click={marketplace}>marketplace</a> <!-- when you click the 'marketplace' button-->
         <a href="/" class="button" on:click={loan}>Login</a>
         <a href="/" class="button" on:click={fleet}>fleet</a>
         <a href="/" class="button" on:click={details}>location details</a>

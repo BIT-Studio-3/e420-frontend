@@ -29,13 +29,13 @@
   position: relative;
 }
 .shaper {
-  background: rgb(0, 0, 0) url(option2.jpg) repeat 0 0;
+  background: rgb(0, 0, 0) url(option2.jpg) repeat 0 0; /* adds a background image*/
   position: fixed;
   top: 0;
   left: 0;
   height: 120vh;
   width: 120vw;
-  -webkit-animation: slide 70s linear infinite;
+  -webkit-animation: slide 70s linear infinite; /* adds a slide animation*/
 }
 
 .shaper h1 {

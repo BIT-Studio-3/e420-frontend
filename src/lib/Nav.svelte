@@ -9,10 +9,12 @@
         padding:80px;
     }
     nav a
-    {         
+    {       
+        /* Center-align text within anchor tags */  
         text-align: center;  
     }
 
+    /* Styling for the unordered list within the navigation bar */
     nav ul{
         display:flex;
         list-style:none;
@@ -20,12 +22,14 @@
         padding:0;
     }
 
+     /* Styling for the list items within the unordered list */
     nav ul li a div, nav > div {
         padding: 15px 25px;
     }
-
     .nav-words :hover{
-        background-color: #17d8ce!important;
+        /* Change background color on hover */
+        background-color: #17d8ce!important; 
+        /* Change text color on hover */
         color: black;
     }
 
@@ -35,6 +39,9 @@
     }
 </style>
 
+<!-- Navigation bar structure -->
+<!-- seems to be an unorder list with more list items inside- Login  Buy  Loan  Controls 
+each has an anchor tag along with an additinal div for its self. The Nav bar will be a horizontal line-->
 <nav>
 <ul class="nav-words">
     <li>
