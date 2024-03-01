@@ -8,7 +8,7 @@
     -webkit-animation: slide 120s linear infinite;
   }
 
-  @-webkit-keyframes slide { 
+  @-webkit-keyframes slide {
     from {
       background-position: 0 0;
     }
