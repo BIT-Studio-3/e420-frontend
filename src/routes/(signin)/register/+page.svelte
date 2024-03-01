@@ -1,7 +1,7 @@
 <script>
   function nameFunction() {
     // Redirecting to a different page when the button is clicked
-    window.location.href = "/mainPage";
+    window.location.href = "/";
   }
 </script>
 
