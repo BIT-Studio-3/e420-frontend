@@ -1,7 +1,7 @@
 <script>
 
   
-import Location from "../lib/components/Location.svelte";
+import Location from "$lib/components/Location.svelte";
 
 
   let displayMe = "";

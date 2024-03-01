@@ -1,11 +1,24 @@
 <script>
     import { onMount } from "svelte";
     let fetchedData = null;
+    let shipLocation = []
+
+    async function fetchShipSymbols () {
+      response = await fetch(
+        "https://api.spacetraders.io/v2/my/ships",
+        {
+          //key
+        }
+      );
+      
+    }
+
+
 
     async function fetchData() {
       try {
         const response = await fetch(
-          "https://api.spacetraders.io/v2/systems/X1-YH15/waypoints/",
+          `https://api.spacetraders.io/v2/systems/${shipLocation.system}/waypoints/${shipLocation.waypoint}`,
 
           {
             headers: {
