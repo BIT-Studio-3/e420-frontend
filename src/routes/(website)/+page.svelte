@@ -1,58 +1,50 @@
 <script>
-
-  
-import Location from "$lib/components/Location.svelte";
-
+  import Location from "$lib/components/Location.svelte";
 
   let displayMe = "";
   function marketplace() {}
   function loan() {}
   function fleet() {
-    if(displayMe == ""){
-        displayMe = "fleet";
-    }
-    else{
-        displayMe = "";
+    if (displayMe == "") {
+      displayMe = "fleet";
+    } else {
+      displayMe = "";
     }
   }
   function player_details() {
-    if(displayMe == ""){
-        displayMe = "details";
-    }
-    else{
-        displayMe = "";
+    if (displayMe == "") {
+      displayMe = "details";
+    } else {
+      displayMe = "";
     }
   }
 </script>
-
-
-
-
-
 
 <!-- game front end  -->
 <div class="game_background">
   <div class="game_container">
     <div class="left_game_screen">
       <div class="button_bar">
-        <a href="/" class="button" on:click={marketplace}>marketplace</a> <!-- when you click the 'marketplace' button-->
+        <a href="/" class="button" on:click={marketplace}>marketplace</a>
+        <!-- when you click the 'marketplace' button-->
         <a href="/" class="button" on:click={loan}>Login</a>
         <a href="/" class="button" on:click={fleet}>fleet</a>
-        <a href="/" class="button" on:click={player_details}>location details</a>
+        <a href="/" class="button" on:click={player_details}>location details</a
+        >
       </div>
       {#if displayMe == "details"}
         <Location />
         <!-- {:else if displayMe == "fleet"} -->
-       
-      <!-- {:else}
+
+        <!-- {:else}
         <p>{x} is between 5 and 10</p> - -->
       {/if}
     </div>
     <div class="left_game_screen">
       <img src="..\map-of-planets.png" alt="placeHolderMap" />
-      </div>
     </div>
   </div>
+</div>
 
 <style>
   /* gives the spacing around the games front end */
@@ -97,4 +89,3 @@ import Location from "$lib/components/Location.svelte";
     font-weight: bold;
   }
 </style>
-
