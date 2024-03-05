@@ -1,5 +1,5 @@
 <script>
-  import Location from "$lib/components/Location.svelte";
+  // import Location from "$lib/components/Location.svelte";
 
   let displayMe = "";
   function marketplace() {}
@@ -32,13 +32,13 @@
         <a href="/" class="button" on:click={player_details}>location details</a
         >
       </div>
-      {#if displayMe == "details"}
-        <Location />
+      <!-- {#if displayMe == "details"} -->
+        <!-- <Location /> -->
         <!-- {:else if displayMe == "fleet"} -->
 
         <!-- {:else}
         <p>{x} is between 5 and 10</p> - -->
-      {/if}
+      <!-- {/if} -->
     </div>
     <div class="left_game_screen">
       <img src="..\map-of-planets.png" alt="placeHolderMap" />
