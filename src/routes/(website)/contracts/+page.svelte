@@ -12,9 +12,10 @@
 
   onMount(async () => {
     let res = await fetch(
-      "https://api.spacetraders.io/v2/my/contracts",
-      options
-    );
+      "https://api.spacetraders.io/v2/my/contracts", options)
+      let json = await res.json();
+      let temp = json;
+      contracts = { temp };
   });
 </script>
 
