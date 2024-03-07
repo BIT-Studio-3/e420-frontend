@@ -5,43 +5,16 @@
   }
 </script>
 
-<div class="background">
-  <div class="new_user_box">
-    <div class="new_user_content">
-      <label for="uname"><b>Create New User</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required />
-      <button on:click={nameFunction}>Create</button>
-      <!--When you click the button it activates nameFunction bellow-->
-    </div>
-  </div>
-</div>
+<label for="uname"><b>Create New User</b></label>
+<input type="text" placeholder="Enter Username" name="uname" required />
+<button on:click={nameFunction}>Create</button>
+
+<!--When you click the button it activates nameFunction bellow-->
 
 <style>
-  /* Applying box-sizing and margin properties to all elements */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-  }
-  .background {
-    background-color: black;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+
   label {
     color: white;
-  }
-
-  .new_user_box {
-    width: 40%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
-    background-color: rgb(66, 66, 66);
   }
 
   input[type="text"] {
