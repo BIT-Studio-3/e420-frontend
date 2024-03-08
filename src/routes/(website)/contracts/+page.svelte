@@ -24,23 +24,27 @@
 
 <!-- contracts page wrap -->
 <div class="page-container">
-    <!-- box with border corners wrapping contracts -->
+  <!-- box with border corners wrapping contracts -->
   <div class="inner-wrap">
     <!-- wrap around all contracts in a row -->
     <div class="contracts-row">
       {#each contracts as contract}
         <div class="contract-box">
-            <div class="contract-content">
-                <h1>{contract.type}</h1>
-                <p>Contractor: {contract.factionSymbol}</p>
-                <p>Cargo Needed: {contract.terms.deliver.tradeSymbol}</p>
-                <p>Destination: {contract.terms.deliver.destinationSymbol}</p>
-                <p>Reward: {contract.terms.payment.onAccepted} + {contract.terms.payment.onFulfilled}</p>
-                <p>Expires: {contract.deadlineToAccept}</p>
-            </div>
+          <div class="contract-content">
+            <h1 class="type">{contract.type}</h1>
+            <p>Contractor: {contract.factionSymbol}</p>
+            <p>Cargo Needed: {contract.terms.deliver.tradeSymbol}</p>
+            <p>Destination: {contract.terms.deliver.destinationSymbol}</p>
+            <p>
+              Reward: {contract.terms.payment.onAccepted} + {contract.terms
+                .payment.onFulfilled}
+            </p>
+            <p>Expires: {contract.deadlineToAccept}</p>
+          </div>
         </div>
       {/each}
     </div>
+    <span class="border_btm"></span>
   </div>
 </div>
 
