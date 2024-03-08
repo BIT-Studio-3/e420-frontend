@@ -18,7 +18,7 @@
     );
     let json = await res.json();
     let temp = json.data;
-    contracts = { temp };
+    contracts = temp;
   });
 </script>
 
