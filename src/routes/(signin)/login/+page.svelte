@@ -15,6 +15,11 @@
   //setToken("your_token_here");
   //console.log(getToken());
 
+  function nameFunction() {
+    // Redirecting to a different page when the button is clicked
+    window.location.href = "/";
+  }
+
 
 </script>
 
