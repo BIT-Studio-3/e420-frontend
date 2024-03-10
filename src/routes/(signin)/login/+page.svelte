@@ -1,42 +1,24 @@
 <script>
-    import {onMount} from "svelte";
-  function nameFunction() {
-    // Redirecting to a different page when the button is clicked
-    window.location.href = "/";
+  import{writable} from "svelte/store";
+
+  export const token = writable("empty");
+  
+  export function setToken(value){ //this is a function that sets the value of the token
+    token.set(value);
+  }
+  export function getToken(value){
+    return token;
   }
 
-  const options = {
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiVFlUWSIsInZlcnNpb24iOiJ2Mi4xLjUiLCJyZXNldF9kYXRlIjoiMjAyNC0wMi0yNSIsImlhdCI6MTcwOTg1Njk1Miwic3ViIjoiYWdlbnQtdG9rZW4ifQ.mmZyspamLGsyl53-BOeu2b0xbMkGFbsEnud7rCFo-IbHXXLWQbSkgu9hNOImKEppsHNUrSmHseXY6TFWLUK4-jiqGGHvFV0RB4nq3CZYQUd4uaCLN8RblKM6bVt9FyWFUTVP7KMqfGi9R0-e_o7VLEmMWeFIxx7Fq1l4-umxJiPHZnhj3vCHqFRtYgdz1dca538Nj781Odnzrfwr6gid-J-TYuEub81CQrcwvq-IWK_48B5S6X0z52QI-IOszA7vA3vtEUMX5V4FKM6f80V2jl5ghWoE3O-F5v1S1m4AKiAPnZfj_c1oxVNzl4GtRx-3xX3_ATrii4gMa6LEfL9C4g'
-  },
-};
+  //This is how you can use it in other parts of the project
+  //import { token, setToken, getToken } from './yourTokenStore.js';
+  //setToken("your_token_here");
+  //console.log(getToken());
 
-onMount(async () => {
-    try {
-    fetch('https://api.spacetraders.io/v2/my/agent', options)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to fetch agent data');
-    }
-    return response.json();
-  })
-  .then(response => {
-    const token = response.token;
-    console.log(response.token)
-    localStorage.setItem('spaceTradersToken', token);
-    console.log('Token stored:', token);
-  })
-
-} catch (error) {
-      console.error(error);
-    }
-
-});
 
 </script>
 
-<0
+
 <button on:click={nameFunction}>Log In</button>
 
 
