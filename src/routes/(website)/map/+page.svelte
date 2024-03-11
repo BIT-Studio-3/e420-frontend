@@ -9,6 +9,7 @@ import { onMount } from 'svelte';
 
     onMount(async () => {
         try {
+            console.log('Fetching location information...');
             const response = await fetch(`https://api.spacetraders.io/locations/${locationSymbol}`, {
                 method: 'GET',
                 headers: {
@@ -17,6 +18,7 @@ import { onMount } from 'svelte';
             });
 
             if (response.ok) {
+                console.log('Location information received successfully.');
                 locationInfo = await response.json();
             } else {
                 throw new Error(`HTTP error! status: ${response.status}`);
