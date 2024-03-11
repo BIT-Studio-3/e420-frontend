@@ -3,9 +3,9 @@
 import { onMount } from 'svelte';
     
     let locationInfo = {};
-
-    const BearerToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiS1RHVFRJIiwidmVyc2lvbiI6InYyLjEuNSIsInJlc2V0X2RhdGUiOiIyMDI0LTAyLTI1IiwiaWF0IjoxNzA5ODU2OTY5LCJzdWIiOiJhZ2VudC10b2tlbiJ9.lCNa9BGVnVgx-_Sbpf9-g0PqUt1fsvxbFEXF3NzVmc4wXYntqXwp9h3bjovUY23ld7Hmyz_i76X-NVYxbJCJJG7QGX2YLDnD2QwMdYMNalB0Cm136TcHrv__6lztKxEOrLpqdRaIAyX5zvMzCKFAXCQTY2cYeJwJLPY_0S6zgxcmgAbTLkGIoQ4IK_bhkkoZ84DgAcwBn4pKQWI4USgO7Erua6oIZZEKnAgI54v9bOlbQIPXHDABlI4dN_hPFezlFdMD7vXXThL4bfj-cvcjtGlPHMYr_lBZROMQroKtRjkqwKZnwaa6c13lplQ9RONwr3TsM5hMy8mGNsNZmtrKvA'; // Replace 'YourBearerToken' with your actual token
-    const locationSymbol = 'PLANET-1'; // Replace 'YourLocationSymbol' with the symbol of the location you want to get info for
+    //Need new Token 
+    const BearerToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiS0lTU01FTU9SRSIsInZlcnNpb24iOiJ2Mi4yLjAiLCJyZXNldF9kYXRlIjoiMjAyNC0wMy0xMCIsImlhdCI6MTcxMDEyMDMwNSwic3ViIjoiYWdlbnQtdG9rZW4ifQ.h1pTisiPEzbnQ2WuYRunlvA_pj7AbposfZALOKEIgJ15u_F-J3v3woGCsHMXEFOpnViFS6cJMQ5LfEan0cY8teybxXZq7yHGUKDp4ILvpbEB8ccB1Au8cv3IbLjnHt6-P5iwNqOg5IiHiSK1dFZ68JxYa8rl63pSWxuwPejigmt_ywIIrQNtOUaijpkICqapvEEgFr4RM_wAdN7lDR3ThhPoTM15dPLbv9VmYrIZHgKWuwwqvqtdK4Ng98-EcjZsYYWLvJF_ygUH7CZTL7-1xgUMJ-jCq9Val8WesS4T1t4nLyQtaW6UgCB0IxlS3jcXFdaRzWx1pXCCnI5dqz5paA';
+    const locationSymbol = 'PLANET-1'; 
 
     onMount(async () => {
         try {
@@ -20,6 +20,13 @@ import { onMount } from 'svelte';
             if (response.ok) {
                 console.log('Location information received successfully.');
                 locationInfo = await response.json();
+
+                 //Update the location-details div with location information
+                 //Find a simpler way to write this 
+                 document.getElementById('location-details').innerHTML = `
+                    <h2>${locationInfo.name}</h2>
+                    <p>Type: ${locationInfo.type}</p>
+                `;
             } else {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -33,6 +40,7 @@ import { onMount } from 'svelte';
     <div id="location-info">
         <h1>Loading...</h1>
         <p>Fetching location information...</p>
+        <div id="location-details"></div> <!-- Placeholder for location details -->
     </div>
 </body>
 
