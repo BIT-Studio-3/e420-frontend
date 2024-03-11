@@ -1,28 +1,15 @@
 <script>
-  import{writable} from "svelte/store";
+import { token, setToken, getToken } from '$lib/components/tokenStore.js';
+  setToken("12345");
+  console.log(getToken());
 
-  export const token = writable("empty");
-  
-  export function setToken(value){ //this is a function that sets the value of the token
-    token.set(value);
-  }
-  export function getToken(value){
-    return token;
-  }
 
-  //This is how you can use it in other parts of the project
-  //import { token, setToken, getToken } from './yourTokenStore.js';
-  //setToken("your_token_here");
-  //console.log(getToken());
 
   function nameFunction() {
     // Redirecting to a different page when the button is clicked
     window.location.href = "/";
   }
-
-
 </script>
-
 
 <button on:click={nameFunction}>Log In</button>
 
