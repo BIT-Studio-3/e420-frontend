@@ -16,16 +16,14 @@ import { onMount } from 'svelte';
                 }
             });
 
-            if (response.ok) {
                 console.log('Location information received successfully.');
                 locationInfo = await response.json();
-            } else {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+
         } catch (error) {
             console.error('Error:', error);
         }
     });
+    console.log(locationInfo)
 </script>
 
 <body>
@@ -33,7 +31,7 @@ import { onMount } from 'svelte';
         <h1>Loading...</h1>
         <p>Fetching location information...</p>
         <div id="location-details">
-            
+            <!-- <p>Type: {locationInfo.data.type}</p> -->
         </div> <!-- Placeholder for location details -->
     </div>
 </body>
