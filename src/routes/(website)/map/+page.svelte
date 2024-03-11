@@ -5,7 +5,7 @@ import { onMount } from 'svelte';
     let locationInfo = {};
 
     const BearerToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiS1RHVFRJIiwidmVyc2lvbiI6InYyLjEuNSIsInJlc2V0X2RhdGUiOiIyMDI0LTAyLTI1IiwiaWF0IjoxNzA5ODU2OTY5LCJzdWIiOiJhZ2VudC10b2tlbiJ9.lCNa9BGVnVgx-_Sbpf9-g0PqUt1fsvxbFEXF3NzVmc4wXYntqXwp9h3bjovUY23ld7Hmyz_i76X-NVYxbJCJJG7QGX2YLDnD2QwMdYMNalB0Cm136TcHrv__6lztKxEOrLpqdRaIAyX5zvMzCKFAXCQTY2cYeJwJLPY_0S6zgxcmgAbTLkGIoQ4IK_bhkkoZ84DgAcwBn4pKQWI4USgO7Erua6oIZZEKnAgI54v9bOlbQIPXHDABlI4dN_hPFezlFdMD7vXXThL4bfj-cvcjtGlPHMYr_lBZROMQroKtRjkqwKZnwaa6c13lplQ9RONwr3TsM5hMy8mGNsNZmtrKvA'; // Replace 'YourBearerToken' with your actual token
-    const locationSymbol = 'YourLocationSymbol'; // Replace 'YourLocationSymbol' with the symbol of the location you want to get info for
+    const locationSymbol = 'PLANET-1'; // Replace 'YourLocationSymbol' with the symbol of the location you want to get info for
 
     onMount(async () => {
         try {
