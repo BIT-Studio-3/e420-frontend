@@ -27,3 +27,15 @@ import { onMount } from 'svelte';
     });
 </script>
 
+<body>
+    <div id="location-info">
+        <h1>Loading...</h1>
+        <p>Fetching location information...</p>
+    </div>
+</body>
+
+
+<style>
+     
+</style>
+
