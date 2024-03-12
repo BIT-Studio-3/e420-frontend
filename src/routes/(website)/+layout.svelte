@@ -7,8 +7,8 @@
 
 
 <Header/>
-<Background/>
 <div class="page-container">
+    <Background/>
     <div class="inner-content">
         <slot/>
     </div>
@@ -16,10 +16,10 @@
 <Footer/>
 
 <style>
-    .layout-container{
+    .page-container{
         height: 100%;
         width: 100%;
-        padding: 200px 0 0 0;
+        display: block;
     }
 </style>
 

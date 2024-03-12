@@ -4,7 +4,7 @@
   .shaper {
     background: rgb(0, 0, 0) url(option2.jpg) repeat 0 0;
     height: 120vh;
-    width: 98.3vw;
+    width: 100%;
     animation: slide 120s linear infinite;
   }
 
