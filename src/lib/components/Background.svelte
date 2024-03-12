@@ -5,10 +5,10 @@
     background: rgb(0, 0, 0) url(option2.jpg) repeat 0 0;
     height: 120vh;
     width: 98.3vw;
-    -webkit-animation: slide 120s linear infinite;
+    animation: slide 120s linear infinite;
   }
 
-  @-webkit-keyframes slide {
+  @keyframes slide {
     from {
       background-position: 0 0;
     }

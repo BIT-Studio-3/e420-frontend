@@ -8,6 +8,18 @@
 
 <Header/>
 <Background/>
-<slot/>
+<div class="page-container">
+    <div class="inner-content">
+        <slot/>
+    </div>
+</div>
 <Footer/>
+
+<style>
+    .layout-container{
+        height: 100%;
+        width: 100%;
+        padding: 200px 0 0 0;
+    }
+</style>
 
