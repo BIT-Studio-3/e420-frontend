@@ -1,14 +1,12 @@
 <script>
-import { token, setToken, getToken } from '$lib/components/tokenStore.js';
-  setToken("12345");
-  console.log(getToken());
-
-
+import { token, setToken, getToken } from '$lib/components/tokenStore.js';                              
 
   function nameFunction() {
     // Redirecting to a different page when the button is clicked
-    window.location.href = "/";
+    window.location.href = "/"; 
   }
+
+  
 </script>
 
 <button on:click={nameFunction}>Log In</button>
