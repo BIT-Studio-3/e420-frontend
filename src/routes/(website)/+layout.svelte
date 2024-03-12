@@ -16,10 +16,17 @@
 <Footer/>
 
 <style>
-    .page-container{
+    .page-container {
         height: 100%;
         width: 100%;
         display: block;
+        justify-content: center;
+        /* fit-content ?? */
+    }
+
+    .inner-content {
+        height: 100%;
+        padding: 20px 50px;
     }
 </style>
 
