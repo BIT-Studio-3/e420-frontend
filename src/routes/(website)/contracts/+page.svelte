@@ -62,24 +62,23 @@
     margin: 20px 5px 10px;
   }
 
-  .top {
+  /* .top {
     margin-bottom: 20px;
-  }
+  } */
 
-  .border-box {
+  /* .border-box {
     border-left: 1px solid #98e6ff;
     border-bottom: 1px solid #98e6ff;
     height: 20px;
     width: 20px;
-  }
+  } */
 
   .contract-box {
     width: 300px;
     text-align: center;
     margin: 0px 40px;
-    /* border: 3px double #98e6ff; */
   }
 
-  .contract-content {
-  }
+  /* .contract-content {
+  } */
 </style>
