@@ -8,10 +8,11 @@
 
 <Header/>
 <div class="page-container">
-    <Background/>
+    <Background>
     <div class="inner-content">
         <slot/>
     </div>
+    </Background>
 </div>
 <Footer/>
 

@@ -1,7 +1,10 @@
-<div class="shaper" />
+<div class="background">
+  <slot/>  
+</div>
+
 
 <style>
-  .shaper {
+  .background {
     background: rgb(0, 0, 0) url(option2.jpg) repeat 0 0;
     height: 120vh;
     width: 100%;

@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   const key =
-    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiRkhGR0hGR0giLCJ2ZXJzaW9uIjoidjIuMS41IiwicmVzZXRfZGF0ZSI6IjIwMjQtMDItMjUiLCJpYXQiOjE3MDk4NTE1MDksInN1YiI6ImFnZW50LXRva2VuIn0.nMj2_Gbe034B5QMC7orFWAelFRmYzloHH5XnBzwScoiU6fnZDh9buwe2Xi96HDkdBBBXB9LSTnATqTkYAsYbYqDq5QROE-D21DK2BrswEg1tnNCxGMnceqJleio6O5Jv442VytBVvr8TEng_Y0Z4ztjAwNzOq-U9-FwAwNSF_mMW_3HXfDbz5fd-Pbt2oE37e14KTFgBMzHX2lC1Dj8n0HpgJ8X04-y3qUBV1KP_LqcllDTJPo-8xqxrb18LD4d9R5YDhVxFFPIbh_yCrEP1lz718idzEuLpMRrxYW46rDCfnPeKFE8Q-4_k7tMvAxn2JyK_gEXD1FA9WDqFOlDRxg";
+    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiQ09OUkFDVFMiLCJ2ZXJzaW9uIjoidjIuMi4wIiwicmVzZXRfZGF0ZSI6IjIwMjQtMDMtMTAiLCJpYXQiOjE3MTAyOTYzMjAsInN1YiI6ImFnZW50LXRva2VuIn0.kOaa33UcrHS-fcnjwjo4xZZ4yJZOT6bzc-6swdPAv9e5XGyPhl8eGLJtu2dDPkZ2P5m63lGdjQ_InxNGs42Y2w-gBA_i_c1Wog4Xp_lipvGq53FN8IxTz-UR-1JaWl72ocDfc3B56PIKzU0lhBIPVkUf1ZINy1yDIwfqi74JkfuYLw8S_bcdpHnCZi3-jBQWzQO2Nd-ybFN2qXCE4-EBweYJCTCU17Loa-AY1ybIlrFx1kwyIA_uimblX6XfRI2jdkeyEmZdVtvgV1TlYu_bNqw2reG64tVM6qjGw6t4Uwex_cPfcj20v9njiPZOTS8C68A5A7aLwinbj79stGd4mA";
   let contracts = [];
   const options = {
     headers: {
@@ -12,7 +12,7 @@
 
   onMount(async () => {
       let res = await fetch(
-        "https://api.spacetraders.io/v2/my/contracts?limit=3",
+        "https://api.spacetraders.io/v2/my/contracts",
         options
       );
       let json = await res.json();
