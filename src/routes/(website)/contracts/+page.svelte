@@ -1,23 +1,25 @@
 <script>
   import { onMount } from "svelte";
-  const key =
-    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiQ09OUkFDVFMiLCJ2ZXJzaW9uIjoidjIuMi4wIiwicmVzZXRfZGF0ZSI6IjIwMjQtMDMtMTAiLCJpYXQiOjE3MTAyOTYzMjAsInN1YiI6ImFnZW50LXRva2VuIn0.kOaa33UcrHS-fcnjwjo4xZZ4yJZOT6bzc-6swdPAv9e5XGyPhl8eGLJtu2dDPkZ2P5m63lGdjQ_InxNGs42Y2w-gBA_i_c1Wog4Xp_lipvGq53FN8IxTz-UR-1JaWl72ocDfc3B56PIKzU0lhBIPVkUf1ZINy1yDIwfqi74JkfuYLw8S_bcdpHnCZi3-jBQWzQO2Nd-ybFN2qXCE4-EBweYJCTCU17Loa-AY1ybIlrFx1kwyIA_uimblX6XfRI2jdkeyEmZdVtvgV1TlYu_bNqw2reG64tVM6qjGw6t4Uwex_cPfcj20v9njiPZOTS8C68A5A7aLwinbj79stGd4mA";
+  const token =
+    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiSERGSERIREhEIiwidmVyc2lvbiI6InYyLjIuMCIsInJlc2V0X2RhdGUiOiIyMDI0LTAzLTEwIiwiaWF0IjoxNzEwNTQ2NjY3LCJzdWIiOiJhZ2VudC10b2tlbiJ9.MWCSlX-j2LLHcX3bBnB4EvR8Yp-uQstO5ehSyFM7yqCtSpN86HZeTZB42hwa1GD63_TsFm35K5iJJ0L3KnFigC_R9mnXL-1-wH7c4-z5AYSVJv7a5KdH6TNmXPKNQ9FX_0c6VCfnjWKJI5iiKlNsqckATfvZ0v9A0c2Az0ORHpc52ktqbs_Kj1PzWWDh-etKQacy2JgoCAuCU6LcNdtlxYWGRo35Xsmpl9kjOEddj22-VRQGlRB2wrEKNNeokEypmmJ4ZSMJ6Oigu1bl_xesiqsy8pMpnhn9aJD9yxwS7E500P_N3pxubT3INQLZXDKNJVkz0rN85g897BJvoV3AsQ";
   let contracts = [];
   const options = {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${key}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
   onMount(async () => {
-      let res = await fetch(
+      const res = await fetch(
         "https://api.spacetraders.io/v2/my/contracts",
         options
       );
       let json = await res.json();
       let temp = json.data;
       contracts = temp;
+      // uncomment below to see console output
+      // console.log(contracts);
   });
 </script>
 
@@ -33,8 +35,8 @@
             <h1 class="type">{contract.type}</h1>
             <div class="line top"/>
             <p>Contractor: {contract.factionSymbol}</p>
-            <p>Cargo Needed: {contract.terms.deliver.tradeSymbol}</p>
-            <p>Destination: {contract.terms.deliver.destinationSymbol}</p>
+            <p>Cargo Needed: {contract.terms.deliver[0].tradeSymbol}</p>
+            <p>Destination: {contract.terms.deliver[0].destinationSymbol}</p>
             <p>
               Reward: {contract.terms.payment.onAccepted} + {contract.terms
                 .payment.onFulfilled}
