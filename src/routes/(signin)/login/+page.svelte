@@ -25,12 +25,11 @@
 
   function nameFunction() {
     // Redirecting to a different page when the button is clicked
-    window.location.href = "/";
+    window.location.href = "/"; 
   }
 
-
+  
 </script>
-
 
 <button on:click={nameFunction}>Log In</button>
 
