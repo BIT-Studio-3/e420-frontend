@@ -39,13 +39,13 @@
           wrongToken.set(false);
         }else{
           wrongToken.set(true);
-        }catch (error){
+        }
+      }catch (error){
           console.log(error);
         }
-        }catch (error){
+    }catch (error){
           console.log(error);
         }
-      }
 
   }
   export {checkAgent};
