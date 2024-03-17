@@ -26,11 +26,29 @@
       const json = await res.json();
       console.log(json);
       try{//handles errors
-        
-
+        if (json.error.code > 0) {
+          wrongToken.set(true);
+        }
+      }catch(error){
+          console.log(error);
+      }
+      try{
+        if(json.data && json.data.symbol === username.toUpperCase()){
+          token.set(tokenValue);
+          usernameValue.set(username);
+          wrongToken.set(false);
+        }else{
+          wrongToken.set(true);
+        }catch (error){
+          console.log(error);
+        }
+        }catch (error){
+          console.log(error);
+        }
       }
 
   }
+  export {checkAgent};
 
   
   export function setToken(value){ //this is a function that sets the value of the token
