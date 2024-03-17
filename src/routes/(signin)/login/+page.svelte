@@ -2,6 +2,19 @@
   import{writable} from "svelte/store";
 
   export const token = writable("empty");
+  export const wrongToken = writable(false);
+  export const username = writable("empty");
+
+  async function checkAgent() {
+    try{
+      const tokenInput = document.getElementById("token-input");
+      let tokenValue = tokenInput.value;
+      const usernameInput = document.getElementById("username-input");
+      let username = usernameInput.value;
+    }
+
+  }
+
   
   export function setToken(value){ //this is a function that sets the value of the token
     token.set(value);
@@ -9,11 +22,6 @@
   export function getToken(value){
     return token;
   }
-
-  //This is how you can use it in other parts of the project
-  //import { token, setToken, getToken } from './yourTokenStore.js';
-  //setToken("your_token_here");
-  //console.log(getToken());
 
   function nameFunction() {
     // Redirecting to a different page when the button is clicked
