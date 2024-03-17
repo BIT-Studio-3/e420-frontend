@@ -8,10 +8,27 @@
   async function checkAgent() {
     try{
       const tokenInput = document.getElementById("token-input");
-      let tokenValue = tokenInput.value;
+      let tokenValue = tokenInput.value;//stores token input data in tokenValue
       const usernameInput = document.getElementById("username-input");
-      let username = usernameInput.value;
-    }
+      let username = usernameInput.value;//stores userName 
+
+      const options = {
+        headers: {//includes headers of fetched data
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tokenValue}`,
+        },
+      };
+
+      const res = await fetch(
+        "https://api.spacetraders.io/v2/my/agent",
+        options
+      );
+      const json = await res.json();
+      console.log(json);
+      try{//handles errors
+        
+
+      }
 
   }
 
