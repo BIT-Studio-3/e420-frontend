@@ -1,7 +1,6 @@
 <div class="background">
-  <slot/>  
+  <slot />
 </div>
-
 
 <style>
   .background {

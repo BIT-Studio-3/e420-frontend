@@ -12,7 +12,6 @@
 <!--When you click the button it activates nameFunction bellow-->
 
 <style>
-
   label {
     color: white;
   }

@@ -37,7 +37,7 @@
       <p class="wrong-token-message">
         Incorrect username and/or token, please try again
       </p>
-    {/if}  
+    {/if}
   </div>
 </div>
 
@@ -59,14 +59,14 @@
     padding: 14px 20px;
     margin: 8px 0;
     border: none; */
-    /*displays a pointer cursor only when hovering over the 
+  /*displays a pointer cursor only when hovering over the 
   button helps to show the user that they are in fact on the interactive button*/
-    /* cursor: pointer;
+  /* cursor: pointer;
     width: 100%;
   } */
 
   /* hover effect for button */
   button:hover {
     opacity: 0.8;
-  } 
+  }
 </style>

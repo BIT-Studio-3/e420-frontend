@@ -33,10 +33,10 @@
         >
       </div>
       <!-- {#if displayMe == "details"} -->
-        <!-- <Location /> -->
-        <!-- {:else if displayMe == "fleet"} -->
+      <!-- <Location /> -->
+      <!-- {:else if displayMe == "fleet"} -->
 
-        <!-- {:else}
+      <!-- {:else}
         <p>{x} is between 5 and 10</p> - -->
       <!-- {/if} -->
     </div>
