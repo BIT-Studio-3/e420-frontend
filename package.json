@@ -6,7 +6,8 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"start": "npm i && npm run dev -- --open"
+		"start": "npm i && npm run dev -- --open",
+		"open": "npm run dev -- --open"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.1.1",

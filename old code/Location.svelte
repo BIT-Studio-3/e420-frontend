@@ -8,12 +8,10 @@
       //key
     });
   }
-
-  async function fetchData() {
+  onMount(async () => {
     try {
       const response = await fetch(
         ""
-
         {
           headers: {
             "Content-Type": "application/json",
@@ -26,9 +24,6 @@
     } catch (error) {
       console.error(error);
     }
-  }
-  onMount(() => {
-    fetchData();
   });
 </script>
 
