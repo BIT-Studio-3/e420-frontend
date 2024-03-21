@@ -1,11 +1,10 @@
 import { writable } from "svelte/store";
 
 export const tokenStore = writable("empty");
-export let token = "";
 export const wrongToken = writable(false);
 export const usernameValue = writable("empty");
 
-async function checkAgent() {
+export async function checkAgent() {
   try {
     const tokenInput = document.getElementById("token-input");
     let tokenValue = tokenInput.value; //stores token input data in tokenValue
@@ -30,20 +29,14 @@ async function checkAgent() {
 
     if (json.data && json.data.symbol === username.toUpperCase()) {
       tokenStore.set(tokenValue);
-      tokenStore.subscribe((tokenValue) => {
-        token = tokenValue;
-      });
       usernameValue.set(username);
       wrongToken.set(false);
     } else {
       wrongToken.set(true);
     }
     // Uncomment below for testing
-    // console.log(token);
     // console.log(json.data.symbol);
   } catch (error) {
     console.log(error);
   }
 }
-
-export { checkAgent };
