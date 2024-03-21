@@ -1,8 +1,8 @@
 <script>
   import { onMount } from "svelte";
   const token =
-    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiSERGSERIREhEIiwidmVyc2lvbiI6InYyLjIuMCIsInJlc2V0X2RhdGUiOiIyMDI0LTAzLTEwIiwiaWF0IjoxNzEwNTQ2NjY3LCJzdWIiOiJhZ2VudC10b2tlbiJ9.MWCSlX-j2LLHcX3bBnB4EvR8Yp-uQstO5ehSyFM7yqCtSpN86HZeTZB42hwa1GD63_TsFm35K5iJJ0L3KnFigC_R9mnXL-1-wH7c4-z5AYSVJv7a5KdH6TNmXPKNQ9FX_0c6VCfnjWKJI5iiKlNsqckATfvZ0v9A0c2Az0ORHpc52ktqbs_Kj1PzWWDh-etKQacy2JgoCAuCU6LcNdtlxYWGRo35Xsmpl9kjOEddj22-VRQGlRB2wrEKNNeokEypmmJ4ZSMJ6Oigu1bl_xesiqsy8pMpnhn9aJD9yxwS7E500P_N3pxubT3INQLZXDKNJVkz0rN85g897BJvoV3AsQ";
-  let contracts = [];
+    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiQURTREFTRCIsInZlcnNpb24iOiJ2Mi4yLjAiLCJyZXNldF9kYXRlIjoiMjAyNC0wMy0xMCIsImlhdCI6MTcxMDk5MzY4OSwic3ViIjoiYWdlbnQtdG9rZW4ifQ.daWu7xJpvBrd-hMZssZExilUm7iFj_cIYIQN9swX8MFtRjG1EkupDQL9aM3eJWg8c5JyjY82sTZxzr7jGTW_qkEyN9-MvqiNmVp3SWxoHiiAUDoIFs9lCMLJ4CyOnt6A4BjtGEuI0wpt3oXcIwSH2rfK35zxexobni77ULrT_mCp1MTE5WZOGkwnGwwGcopLCLpfrNADY_v2v1215GbpkNXYeGHUDNTZLIfAeazDuNgYXKySka2TalfF4a931u7K_w3CHcyeXh4TIJtW5oyVF-HNYHX7Nowx8DhbqoLwYWjpvtbKeoz9g-XRWG6F1vUtK_WAgwP3RTtGeYN6rYos8Q";
+  let contractArr = [];
   const options = {
     headers: {
       "Content-Type": "application/json",
@@ -15,17 +15,19 @@
       // fetch contracts using options sent
       const res = await fetch(
         "https://api.spacetraders.io/v2/my/contracts",
-        options,
+        options
       );
       // store json data
       let json = await res.json();
-      let temp = json.data;
-      contracts = temp;
+      let temp = [];
+      temp.push(json.data);
+      contractArr = temp;
       // uncomment below to see console output
       // console.log(contracts);
     } catch (err) {
       console.error(`Error ${res.error.code}: Invalid token`);
     }
+    console.log(contractArr);
   });
 </script>
 
@@ -35,27 +37,31 @@
   <div class="inner-wrap">
     <!-- wrap around all contracts in a row -->
     <div class="contracts-row">
-      {#if contracts}
-        {#each contracts as contract}
-          <div class="contract-box">
-            <div class="contract-content">
-              <h1 class="type">{contract.type}</h1>
-              <div class="line top" />
-              <p>Contractor: {contract.factionSymbol}</p>
-              <p>Cargo Needed: {contract.terms.deliver[0].tradeSymbol}</p>
-              <p>Destination: {contract.terms.deliver[0].destinationSymbol}</p>
-              <p>
-                Reward: {contract.terms.payment.onAccepted} + {contract.terms
-                  .payment.onFulfilled}
-              </p>
-              <p>Expires: {contract.deadlineToAccept}</p>
-              <div class="line bottom" />
+      {#if contractArr}
+        {#each contractArr as contracts}
+          {#each contracts as contract}
+            <div class="contract-box">
+              <div class="contract-content">
+                <h1 class="type">{contract.type}</h1>
+                <div class="line top" />
+                <p>Contractor: {contract.factionSymbol}</p>
+                <p>Cargo Needed: {contract.terms.deliver[0].tradeSymbol}</p>
+                <p>
+                  Destination: {contract.terms.deliver[0].destinationSymbol}
+                </p>
+                <p>
+                  Reward: {contract.terms.payment.onAccepted} + {contract.terms
+                    .payment.onFulfilled}
+                </p>
+                <p>Expires: {contract.deadlineToAccept}</p>
+                <div class="line bottom" />
+              </div>
+              <div class="border-bottom-container">
+                <div class="border-box left" />
+                <div class="border-box right" />
+              </div>
             </div>
-            <div class="border-bottom-container">
-              <div class="border-box left" />
-              <div class="border-box right" />
-            </div>
-          </div>
+          {/each}
         {/each}
       {/if}
     </div>
@@ -63,10 +69,6 @@
 </div>
 
 <style>
-  * {
-    color: #98e6ff;
-  }
-
   .line {
     border-top: 1px dashed #98e6ff;
     margin: 20px 5px 10px;

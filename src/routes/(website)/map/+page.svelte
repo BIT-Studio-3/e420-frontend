@@ -31,6 +31,7 @@ import { onMount } from 'svelte';
 
 <body>
     <div id="location-info">
+      <!-- this needs to be replaced with an actual loading animation -->
       <h1>Loading...</h1>
       <p>Fetching location information...</p>
     
@@ -38,7 +39,6 @@ import { onMount } from 'svelte';
     if the locationInfo variable is truthy (i.e., not null, undefined, or an empty string). 
     If the condition is true, Svelte will render the content inside the block. 
     If the condition is false, Svelte will skip over the block and not render its contents-->
-      
     {#if locationInfo} 
         <div id="location-details">
           <p>Type: {locationInfo.data.type}</p>
@@ -54,6 +54,6 @@ import { onMount } from 'svelte';
 
 
 <style>
-     
+
 </style>
 

@@ -29,4 +29,7 @@
         /* height: 100%; */
         padding: 20px 50px;
     }
+    * {
+      color:aliceblue;
+     }
 </style>
