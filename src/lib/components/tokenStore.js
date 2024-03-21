@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable, readable, derived } from "svelte/store";
 
 export const token = writable("empty");
 export const wrongToken = writable(false);
@@ -9,7 +9,7 @@ async function checkAgent() {
     const tokenInput = document.getElementById("token-input");
     let tokenValue = tokenInput.value; //stores token input data in tokenValue
     const usernameInput = document.getElementById("username-input");
-    let username = usernameInput.value; //stores userName
+    let usernameValue = usernameInput.value; //stores userName
 
     const options = {
       headers: {
@@ -23,7 +23,7 @@ async function checkAgent() {
     const json = await res.json();
     console.log(json);
     try {
-      if (json.error.code > 0) {
+      if (json.error) {
         wrongToken.set(true);
       }
 
@@ -31,6 +31,7 @@ async function checkAgent() {
         token.set(tokenValue);
         usernameValue.set(username);
         wrongToken.set(false);
+        console.log(token);
       } else {
         wrongToken.set(true);
       }
@@ -41,12 +42,10 @@ async function checkAgent() {
     console.log(error);
   }
 }
-export { checkAgent };
 
-export function setToken(value) {
-  //this is a function that sets the value of the token
-  token.set(value);
-}
-export function getToken(value) {
+function getToken() {
   return token;
 }
+
+export { checkAgent, getToken };
+export default token;
