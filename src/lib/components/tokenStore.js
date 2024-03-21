@@ -23,19 +23,18 @@ async function checkAgent() {
     const res = await fetch("https://api.spacetraders.io/v2/my/agent", options);
     const json = await res.json();
     console.log(json);
-    
+
     if (json.error) {
       wrongToken.set(true);
     }
-    
+
     if (json.data && json.data.symbol === username.toUpperCase()) {
       tokenStore.set(tokenValue);
       tokenStore.subscribe((tokenValue) => {
         token = tokenValue;
-    });
+      });
       usernameValue.set(username);
       wrongToken.set(false);
-      
     } else {
       wrongToken.set(true);
     }
