@@ -1,0 +1,1 @@
+https://kit.svelte.dev/docs/load#layout-data
