@@ -1,12 +1,12 @@
 <script>
   //This will be he java script code for the fetching of the location
   import { onMount } from "svelte";
-  import { userDetails } from "$lib/components/tokenStore.js";
+  // import { userDetails } from "$lib/components/tokenStore.js";
 
   let locationInfo = null;
   const locationSymbol = "X1-NT89-A1"; // headquarters symbol
-  const token = userDetails.token;
-  console.log(userDetails);
+  const token = "";
+ 
 
   onMount(async () => {
     try {

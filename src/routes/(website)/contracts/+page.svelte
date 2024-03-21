@@ -1,11 +1,11 @@
 <script>
   import { onMount } from "svelte";
-  import { userDetails } from "$lib/components/tokenStore.js";
+  // import { userDetails } from "$lib/components/tokenStore.js";
   import Buttons from "$lib/components/buttons.svelte";
 
   let contractArr = null;
   let temp = [];
-  const token = userDetails.token;
+  const token = "";
   
   const options = {
     method: "GET",
@@ -28,13 +28,13 @@
       let json = await res.json();
       temp.push(json.data);
       // uncomment below to see console output
-      // console.log(contracts);
+      // console.log(temp);
     } catch (err) {
       console.error(err);
     }
-    // console.log(contractArr);
   });
   contractArr = temp;
+  // console.log(contractArr);
 </script>
 
 <!-- contracts page wrap -->
@@ -42,7 +42,7 @@
   <!-- box with border corners wrapping contracts -->
   <div class="inner-wrap">
     <!-- wrap around all contracts in a row -->
-    <!-- <div class="contracts-row">
+    <div class="contracts-row">
       {#if contractArr}
         {#each contractArr as contracts}
           {#each contracts as contract}
@@ -71,7 +71,7 @@
           {/each}
         {/each}
       {/if}
-    </div> -->
+    </div>
   </div>
 </div>
 
