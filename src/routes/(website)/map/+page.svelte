@@ -1,15 +1,13 @@
 <script>
   //This will be he java script code for the fetching of the location
   import { onMount } from "svelte";
-  import { getToken, token } from "$lib/components/tokenStore.js";
+  import { token } from "$lib/components/tokenStore.js";
 
   let locationInfo = null;
   const locationSymbol = "X1-NT89-A1"; // headquaters symbol
 
   onMount(async () => {
     try {
-      const test = await getToken();
-      console.log(test)
       const response = await fetch(
         "https://api.spacetraders.io/v2/systems/X1-NT89/waypoints/X1-NT89-A1",
         {

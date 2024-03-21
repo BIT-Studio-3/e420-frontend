@@ -38,8 +38,9 @@ async function checkAgent() {
     } else {
       wrongToken.set(true);
     }
-    console.log(token);
-    console.log(json.data.symbol);
+    // Uncomment below for testing
+    // console.log(token);
+    // console.log(json.data.symbol);
   } catch (error) {
     console.log(error);
   }
