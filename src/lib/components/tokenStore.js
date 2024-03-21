@@ -3,6 +3,7 @@ import { writable } from "svelte/store";
 export const tokenStore = writable("empty");
 export const wrongToken = writable(false);
 export const usernameValue = writable("empty");
+let userDetails = [];
 
 export async function checkAgent() {
   try {
@@ -31,12 +32,20 @@ export async function checkAgent() {
       tokenStore.set(tokenValue);
       usernameValue.set(username);
       wrongToken.set(false);
+      userDetails = {
+        data: json.data,
+        token: tokenValue,
+      };
     } else {
       wrongToken.set(true);
     }
     // Uncomment below for testing
     // console.log(json.data.symbol);
+    // console.log(userDetails.token)
+    // console.log(userDetails)
   } catch (error) {
     console.log(error);
   }
 }
+
+export { userDetails }

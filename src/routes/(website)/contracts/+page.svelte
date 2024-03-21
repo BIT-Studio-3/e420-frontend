@@ -1,10 +1,11 @@
 <script>
   import { onMount } from "svelte";
-  import { token } from "$lib/components/tokenStore.js";
+  import { userDetails } from "$lib/components/tokenStore.js";
   import Buttons from "$lib/components/buttons.svelte";
 
   let contractArr = null;
   let temp = [];
+  const token = userDetails.token;
   
   const options = {
     method: "GET",
