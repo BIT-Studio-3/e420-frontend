@@ -1,11 +1,9 @@
 <script>
   //This will be he java script code for the fetching of the location
   import { onMount } from "svelte";
+  import { token } from "../../../lib/components/tokenStore.js";
 
   let locationInfo = null;
-
-  const BearerToken =
-    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiS0lTU01FTU9SRSIsInZlcnNpb24iOiJ2Mi4yLjAiLCJyZXNldF9kYXRlIjoiMjAyNC0wMy0xMCIsImlhdCI6MTcxMDEyMDMwNSwic3ViIjoiYWdlbnQtdG9rZW4ifQ.h1pTisiPEzbnQ2WuYRunlvA_pj7AbposfZALOKEIgJ15u_F-J3v3woGCsHMXEFOpnViFS6cJMQ5LfEan0cY8teybxXZq7yHGUKDp4ILvpbEB8ccB1Au8cv3IbLjnHt6-P5iwNqOg5IiHiSK1dFZ68JxYa8rl63pSWxuwPejigmt_ywIIrQNtOUaijpkICqapvEEgFr4RM_wAdN7lDR3ThhPoTM15dPLbv9VmYrIZHgKWuwwqvqtdK4Ng98-EcjZsYYWLvJF_ygUH7CZTL7-1xgUMJ-jCq9Val8WesS4T1t4nLyQtaW6UgCB0IxlS3jcXFdaRzWx1pXCCnI5dqz5paA";
   const locationSymbol = "X1-NT89-A1"; // headquaters symbol
 
   onMount(async () => {
@@ -16,7 +14,7 @@
         {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${BearerToken}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );

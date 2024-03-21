@@ -1,8 +1,7 @@
 <script>
   import { onMount } from "svelte";
+  import { token } from "../../../lib/components/tokenStore.js";
   import Buttons from "../../../lib/components/buttons.svelte";
-  const token =
-    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiQURTREFTRCIsInZlcnNpb24iOiJ2Mi4yLjAiLCJyZXNldF9kYXRlIjoiMjAyNC0wMy0xMCIsImlhdCI6MTcxMDk5MzY4OSwic3ViIjoiYWdlbnQtdG9rZW4ifQ.daWu7xJpvBrd-hMZssZExilUm7iFj_cIYIQN9swX8MFtRjG1EkupDQL9aM3eJWg8c5JyjY82sTZxzr7jGTW_qkEyN9-MvqiNmVp3SWxoHiiAUDoIFs9lCMLJ4CyOnt6A4BjtGEuI0wpt3oXcIwSH2rfK35zxexobni77ULrT_mCp1MTE5WZOGkwnGwwGcopLCLpfrNADY_v2v1215GbpkNXYeGHUDNTZLIfAeazDuNgYXKySka2TalfF4a931u7K_w3CHcyeXh4TIJtW5oyVF-HNYHX7Nowx8DhbqoLwYWjpvtbKeoz9g-XRWG6F1vUtK_WAgwP3RTtGeYN6rYos8Q";
   let contractArr = [];
   const options = {
     headers: {
