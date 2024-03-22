@@ -33,7 +33,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 20vh;
+    height: 30vh;
     background-color: rgb(66, 66, 66);
   }
   </style>

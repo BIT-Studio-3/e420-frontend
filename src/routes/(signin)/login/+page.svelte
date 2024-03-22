@@ -6,15 +6,9 @@
   }
 
 </script>
-
-<button on:click={nameFunction}>Log In</button>
-
+<label for="login-header"><b>User Login</b></label>
 <div class="outer-box">
   <div class="content">
-    <div class="top-buttons">
-      <a href="login" class="login-link">Login</a>
-      <a href="register" class="register-link">Register</a>
-    </div>
     <hr class="line" />
     <div class="input-container">
       <input
@@ -43,7 +37,7 @@
 </div>
 
 <style>
-  /* label {
+   label {
     color: white;
   }
   input[type="text"] {
@@ -53,18 +47,18 @@
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-  } */
-  /* button {
+  } 
+  button {
     background-color: white;
     color: black;
     padding: 14px 20px;
     margin: 8px 0;
-    border: none; */
+    border: none; 
   /*displays a pointer cursor only when hovering over the 
   button helps to show the user that they are in fact on the interactive button*/
-  /* cursor: pointer;
+    cursor: pointer;
     width: 100%;
-  } */
+  } 
 
   /* hover effect for button */
   button:hover {
