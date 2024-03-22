@@ -27,6 +27,7 @@
     </div>
     <div class="login">
       <button class="login-button" on:click={() => checkAgent()}>Login</button>
+      <button class="register-button">Register</button>
     </div>
     {#if $wrongToken}
       <p class="wrong-token-message">
@@ -47,6 +48,7 @@
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    border-radius: 25px;
   } 
   button {
     background-color: white;
@@ -58,6 +60,7 @@
   button helps to show the user that they are in fact on the interactive button*/
     cursor: pointer;
     width: 100%;
+    border-radius: 25px;
   } 
 
   /* hover effect for button */
