@@ -49,7 +49,7 @@
           <h1>Symbol: {shipyard.symbol}</h1>
           <h2>Ship Types:</h2>
           {#each shipyard.shipTypes as shipType}
-            <p>- {shipType}</p>
+            <p>- {shipType.type}</p>
           {/each}
           {#if shipyard.ships}
             <h3>Available: {shipyard.ships}</h3>
