@@ -1,1 +1,6 @@
 https://kit.svelte.dev/docs/load#layout-data
+
+
+for exporting/importing data n functions
+https://flaviocopes.com/svelte-export-from-component/
+
