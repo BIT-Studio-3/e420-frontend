@@ -22,15 +22,15 @@
       );
 
       const json = await res.json();
-      shipyards = json.data;
+      
       // store error message if there's no shipyard at current location
-      if (shipyards.error.code === 404) {
+      if (json.error.code === 404) {
         shipyards = {
           msg: "No shipyard available at current waypoint",
         };
       }
-
-      if (shipyards.transactions) {
+      else {
+        shipyards = json.data;
         delete shipyards.transactions;
       }
 
@@ -43,6 +43,7 @@
 
 <div id="shipyard-container">
 <!-- add loading animation -->
+{#if shipyards}
   {#if shipyards.symbol}
   <div class="shipyard-box">
     <div id="shipyard-details">
@@ -56,5 +57,6 @@
     <div id="error">
       <h1>{shipyards.msg}</h1>
     </div>
+  {/if}
   {/if}
 </div>
