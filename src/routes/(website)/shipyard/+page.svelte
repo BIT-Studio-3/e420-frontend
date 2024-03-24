@@ -30,7 +30,7 @@
         };
       } else {
         shipyard = jsonData.data;
-        delete shipyard.transactions;
+        delete shipyard.transactions; // removing transactions as it's just too much unnecessary data
       }
 
       console.log(shipyard);
@@ -42,7 +42,9 @@
 
 <div id="shipyard-container">
   <!-- add loading animation -->
+  <!-- if the shipyard var is filled, do the following HTML -->
   {#if shipyard}
+  <!-- If shipyard var has actual data and no error object, display the data -->
     {#if shipyard.symbol}
       <div class="shipyard-box">
         <div id="shipyard-details">
@@ -51,7 +53,8 @@
           {#each shipyard.shipTypes as shipType}
             <p>- {shipType.type}</p>
           {/each}
-          {#if shipyard.ships}
+          <!-- not all shipyards have ships available, so -->
+          {#if shipyard.ships} 
             <h3>Available: {shipyard.ships}</h3>
           {:else}
             <p>No ships in stock at this time</p>
@@ -60,6 +63,7 @@
         </div>
       </div>
     {:else}
+    <!-- display the error message if the shipyard var doesn't have valid data -->
       <div id="error">
         <h1>{shipyard.msg}</h1>
       </div>
