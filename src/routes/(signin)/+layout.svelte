@@ -47,9 +47,15 @@
   .inner-content {
     height: 300px;  
     width: 50%;
-    
-    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 50px;
     background-color: rgb(87, 86, 86);
     border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   </style>

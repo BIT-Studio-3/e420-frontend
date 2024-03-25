@@ -6,8 +6,8 @@
   }
 
 </script>
-<label for="login-header"><b>User Login</b></label>
 <div class="outer-box">
+  <label for="login-header"><b>User Login</b></label>
   <div class="content">
     <hr class="line" />
     <div class="input-container">
@@ -68,5 +68,12 @@
     opacity: 0.8;
     background-color: #3BBA9C;
   }
+
+  /* .outer-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } */
 
 </style>
