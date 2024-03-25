@@ -60,7 +60,7 @@
   button helps to show the user that they are in fact on the interactive button*/
     cursor: pointer;
     width: 30%;
-    border-radius: 15px;
+    border-radius: 25px;
   } 
 
   /* hover effect for button */
