@@ -27,7 +27,8 @@
     </div>
     <div class="login">
       <button class="login-button" on:click={() => checkAgent()}>Login</button>
-      <button class="register-button">Register </button>
+      <!-- <button class="register-button">Register </button> -->
+      <a href="/register" class="register-link">Click Here To Register</a>
     </div>
     {#if $wrongToken}
       <p class="wrong-token-message">
@@ -38,7 +39,13 @@
 </div>
 
 <style>
-   label {
+  label {
+    color: #3BBA9C;
+  }
+  .wrong-token-message{
+    color: #3BBA9C;
+  }
+  .register-link{
     color: #3BBA9C;
   }
   input[type="text"] {
@@ -68,12 +75,5 @@
     opacity: 0.8;
     background-color: #3BBA9C;
   }
-
-  /* .outer-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  } */
 
 </style>
