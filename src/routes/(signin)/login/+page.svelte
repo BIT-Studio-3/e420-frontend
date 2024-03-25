@@ -75,5 +75,14 @@
     opacity: 0.8;
     background-color: #3BBA9C;
   }
+  .login{
+    display: flex;
+    justify-content: space-between;
+    
+  }
+
+  .register-link{
+    margin-top: 15px;
+  }
 
 </style>
