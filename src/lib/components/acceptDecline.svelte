@@ -42,4 +42,5 @@ const declineContract = (contractId) => {
 
  this is more of a placeholder concept for the accepting and declining of contracts. accepted contracts are added to the 
 'acceptedContract' array. the acceptContract function takes a contract ID, finds the corresponding in the contracts array
-(im unsure if we will even need arrays to store contracts as we are fetching them, but can be changed). -->
+(im unsure if we will even need arrays to store contracts as we are fetching them, but can be changed).
+CAN DELETED THE COMMENTED STUFF UPON REVIEW-->
