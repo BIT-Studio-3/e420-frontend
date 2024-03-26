@@ -1,6 +1,6 @@
 import { browser } from "$app/environment";
 import { writable } from "svelte/store";
-import type { Writable } from "svelte/store"
+import type { Writable } from "svelte/store";
 
 function writableLocal<T>(key: string, defaultValue?: T): Writable<T> {
   const store = writable<T>(defaultValue)
