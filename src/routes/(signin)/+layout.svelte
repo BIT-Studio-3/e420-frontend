@@ -46,7 +46,7 @@
 
   .inner-content {
     height: 300px;  
-    width: 50%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
