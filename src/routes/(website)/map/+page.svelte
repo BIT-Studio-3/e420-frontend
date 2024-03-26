@@ -46,10 +46,14 @@
         <p>Symbol: {locationInfo.data.symbol}</p>
         <p>X: {locationInfo.data.x}</p>
         <p>Y: {locationInfo.data.y}</p>
-        <!-- <p>System Symbol: {locationInfo.systemSymbol}</p>
-          <p>Orbitals: {locationInfo.orbitals.map(orbital => orbital.symbol).join(', ')}</p> -->
+        <!-- <p>System Symbol: {locationInfo.systemSymbol}</p>-->
+        <div id="orbital-list">
+          {#each locationInfo.data.orbitals as orbital (orbital.symbol)}
+            <p>{orbital.symbol}</p>
+          {/each}
+        </div>
       </div>
-    {/if}
+    {/if} 
   </div>
 </body>
 
