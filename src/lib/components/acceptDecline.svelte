@@ -5,16 +5,16 @@
       const response = await fetch(`https://api.spacetraders.io/v2/my/contracts/${contractId}/accept`, {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer INSERT_TOKEN_HERE' //put our actual player token here
-        } // sending a request to the SpaceTraders API to accept a contract
+          'Authorization': `Bearer ${token}`
+        }
       });
       if (response.ok) {
         console.log('Contract accepted successfully.');
       } else {
-        console.error('Failed to accept contract:', response.statusText); //error checking
+        console.error('Failed to accept contract:', response.statusText);
       }
     } catch (error) {
-      console.error('Error accepting contract:', error); //error checking 
+      console.error('Error accepting contract:', error);
     }
   }
 </script>
