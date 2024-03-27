@@ -4,6 +4,7 @@
     // Redirecting to a different page when the button is clicked
     window.location.href = "/";
   }
+  
 
 </script>
 <div class="outer-box">
@@ -83,6 +84,10 @@
 
   .register-link{
     margin-top: 15px;
+  }
+
+  .outer-box {
+    font-family: 'Orbitron', sans-serif;
   }
 
 </style>
