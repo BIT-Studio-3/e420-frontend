@@ -17,31 +17,48 @@
 
   console.log(token)
 
+  // Function to accept a contract
+  async function acceptContract(contractId) {
+    try {
+      const response = await fetch(`https://api.spacetraders.io/v2/my/contracts/${contractId}/accept`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      if (response.ok) {
+        console.log('Contract accepted successfully.');
+      } else {
+        console.error('Failed to accept contract:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error accepting contract:', error);
+    }
+  }
+
   onMount(async () => {
     try {
-      // fetch contracts using options sent
+      // Fetch contracts using options sent
       const res = await fetch(
         "https://api.spacetraders.io/v2/my/contracts",
         options
       );
-      // store json data
+      // Store JSON data
       let json = await res.json();
       temp.push(json.data);
-      // uncomment below to see console output
+      // Uncomment below to see console output
       // console.log(temp);
     } catch (err) {
       console.error(err);
     }
   });
+
+  // Assign fetched contracts data to contractArr
   contractArr = temp;
-  // console.log(contractArr);
 </script>
 
-<!-- contracts page wrap -->
 <div class="contracts-container">
-  <!-- box with border corners wrapping contracts -->
   <div class="inner-wrap">
-    <!-- wrap around all contracts in a row -->
     <div class="contracts-row">
       {#if contractArr}
         {#each contractArr as contracts}
@@ -61,7 +78,8 @@
                 </p>
                 <p>Expires: {contract.deadlineToAccept}</p>
                 <div class="line bottom" />
-                <Buttons/>
+                <!-- Use a button to trigger the acceptContract function -->
+                <button on:click={() => acceptContract(contract.id)}>Accept Contract</button>
               </div>
               <div class="border-bottom-container">
                 <div class="border-box left" />
