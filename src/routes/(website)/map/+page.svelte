@@ -41,7 +41,7 @@
     If the condition is true, Svelte will render the content inside the block. 
     If the condition is false, Svelte will skip over the block and not render its contents-->
     {#if locationInfo}
-      <div id="location-details">
+      <div class= "location-details">
         <p>Type: {locationInfo.data.type}</p>
         <p>Symbol: {locationInfo.data.symbol}</p>
         <p>X: {locationInfo.data.x}</p>
@@ -58,5 +58,32 @@
 </body>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital@0;1&display=swap');
+
+  .orbitron-location-details {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+  .poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.location-details {
+  
+    width: 30%;
+    background-color: #43455C;
+    color: #3BBA9C;
+    font-family: "Orbitron", sans-serif;
+}
 
 </style>
