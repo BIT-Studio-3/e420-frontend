@@ -5,7 +5,7 @@
 
   let contractArr = null;
   let temp = [];
-  const token = "";
+  const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiVVVJVSIsInZlcnNpb24iOiJ2Mi4yLjAiLCJyZXNldF9kYXRlIjoiMjAyNC0wMy0yNCIsImlhdCI6MTcxMTQyMDE0MSwic3ViIjoiYWdlbnQtdG9rZW4ifQ.YDTD_INb92K9ouz-9o-H_W072RrNUOOx67hvd3yVUBn_GQCvYP5bNRgQNELBoxOmo4hTJ545W9i0LVlgdIKiu_WtYa4GJh9Jbpx8s6hbU7hZ2VBymM-zJvmQAjZjsrC2SBOpt98uV4L3vjeCxpb_1O0gS5xEqkGqiVAyw6J58HVIBCMhSP_nltV5-pJ6OWvXHBJ-YgqjvaEf26sjgMpgNliedAnpcxAtdu3ByGCslOwc-Zd0HU_hENBf0JfvZzl8vjuYgvDrjDI_4OsILM4sgUfbfzSEkRJtSA5va6VHRTLDxyaxeIdZLkrzZhcbWB_05PK-f9bcHCkM0ntZeMIZVw";
   
   const options = {
     method: "GET",
@@ -14,18 +14,19 @@
       Authorization: `Bearer ${token}`,
     },
   };
-
+  
   console.log(token)
-
+  
   onMount(async () => {
     try {
       // fetch contracts using options sent
       const res = await fetch(
         "https://api.spacetraders.io/v2/my/contracts",
         options
-      );
-      // store json data
-      let json = await res.json();
+        );
+        // store json data
+        let json = await res.json();
+        contractArr = temp;
       temp.push(json.data);
       // uncomment below to see console output
       // console.log(temp);
@@ -33,7 +34,6 @@
       console.error(err);
     }
   });
-  contractArr = temp;
   // console.log(contractArr);
 </script>
 
