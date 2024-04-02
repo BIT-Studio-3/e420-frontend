@@ -5,7 +5,7 @@
 
   let contractArr = null;
   let temp = [];
-  const token = "";
+  const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiVVVJVSIsInZlcnNpb24iOiJ2Mi4yLjAiLCJyZXNldF9kYXRlIjoiMjAyNC0wMy0yNCIsImlhdCI6MTcxMTQyMDE0MSwic3ViIjoiYWdlbnQtdG9rZW4ifQ.YDTD_INb92K9ouz-9o-H_W072RrNUOOx67hvd3yVUBn_GQCvYP5bNRgQNELBoxOmo4hTJ545W9i0LVlgdIKiu_WtYa4GJh9Jbpx8s6hbU7hZ2VBymM-zJvmQAjZjsrC2SBOpt98uV4L3vjeCxpb_1O0gS5xEqkGqiVAyw6J58HVIBCMhSP_nltV5-pJ6OWvXHBJ-YgqjvaEf26sjgMpgNliedAnpcxAtdu3ByGCslOwc-Zd0HU_hENBf0JfvZzl8vjuYgvDrjDI_4OsILM4sgUfbfzSEkRJtSA5va6VHRTLDxyaxeIdZLkrzZhcbWB_05PK-f9bcHCkM0ntZeMIZVw";
   
   const options = {
     method: "GET",
@@ -17,24 +17,40 @@
 
   console.log(token)
 
-  // Function to accept a contract
-  async function acceptContract(contractId) {
-    try {
-      const response = await fetch(`https://api.spacetraders.io/v2/my/contracts/${contractId}/accept`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`
+// Function to accept a contract
+async function acceptContract(contractId, isAccepted) {
+  try {
+    // Check if contract is still waiting to be accepted - accept if it hasn't already been accepted
+    if (isAccepted === false) {
+      const response = await fetch(
+        `https://api.spacetraders.io/v2/my/contracts/${contractId}/accept`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+          },
         }
-      });
-      if (response.ok) {
-        console.log('Contract accepted successfully.');
-      } else {
-        console.error('Failed to accept contract:', response.statusText);
+      );
+
+      let json = await response.json();
+      console.log(json);
+
+      if (json.data) {
+        console.log("Yay success!");
+        // Display any success message in HTML 
       }
-    } catch (error) {
-      console.error('Error accepting contract:', error);
+    } else {
+      console.log("Contract already accepted");
+      // Display error already accepted msg in HTML
     }
+
+  } catch (error) {
+    console.error(error);
+    // Display error message in HTML
   }
+}
+
 
   onMount(async () => {
     try {
@@ -45,6 +61,7 @@
       );
       // Store JSON data
       let json = await res.json();
+      contractArr = temp;
       temp.push(json.data);
       // Uncomment below to see console output
       // console.log(temp);
@@ -54,7 +71,6 @@
   });
 
   // Assign fetched contracts data to contractArr
-  contractArr = temp;
 </script>
 
 <div class="contracts-container">
@@ -79,7 +95,9 @@
                 <p>Expires: {contract.deadlineToAccept}</p>
                 <div class="line bottom" />
                 <!-- Use a button to trigger the acceptContract function -->
-                <button on:click={() => acceptContract(contract.id)}>Accept Contract</button>
+<button on:click={() => acceptContract(contract.id, contract.accepted)}
+                  >Accept Contract</button
+                >
               </div>
               <div class="border-bottom-container">
                 <div class="border-box left" />
