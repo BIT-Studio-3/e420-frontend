@@ -38,7 +38,9 @@
         console.log(json);
 
         if (json.data) {
-          console.log("Accepted Successfully!");
+          var successMessage = document.createElement('p');
+          successMessage.textContent = "Accepted Contract Successfully";
+          document.body.appendChild(successMessage);
           // Display any success message in HTML
         }
       } else {
@@ -94,14 +96,14 @@
                 <p>Expires: {contract.deadlineToAccept}</p>
                 <div class="line bottom" />
                 <!-- Use a button to trigger the acceptContract function -->
-                {#if accepted == false}
+                {#if contract.accepted == false}
                   <button
                     on:click={() =>
                       acceptContract(contract.id, contract.accepted)}
                     >Accept Contract</button
                   >
                 {/if}
-                {#if accepted == true}
+                {#if contract.accepted == true}
                   <p>Contract Accepted</p>
                 {/if}
               </div>
