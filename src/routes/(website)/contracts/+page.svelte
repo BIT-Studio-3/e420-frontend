@@ -38,9 +38,9 @@
         console.log(json);
 
         if (json.data) {
-          var successMessage = document.createElement('p');
+          var successMessage = document.createElement('p');           // creates and declares a variable to store the created paragraph element
           successMessage.textContent = "Accepted Contract Successfully";
-          document.body.appendChild(successMessage);
+          document.body.appendChild(successMessage);                //displays the message on the page
           // Display any contract accepted success message
         }
       } else {
@@ -50,8 +50,10 @@
         // Displays error already accepted message
       }
     } catch (error) {
-      console.error(error);
-      // Display error message in HTML
+      var errorMessage = document.createElement('p');
+      errorMessage.textContent = "An error has occured: " + error.message;
+      document.body.appendChild(errorMessage);
+      // Displays error message
     }
   }
 
