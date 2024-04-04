@@ -41,11 +41,13 @@
           var successMessage = document.createElement('p');
           successMessage.textContent = "Accepted Contract Successfully";
           document.body.appendChild(successMessage);
-          // Display any success message in HTML
+          // Display any contract accepted success message
         }
       } else {
-        console.log("Contract already accepted");
-        // Display error already accepted msg in HTML
+        var errorMessage = document.createElement('p');
+        errorMessage.textContent = "Contract already accepted";
+        document.body.appendChild(errorMessage);
+        // Displays error already accepted message
       }
     } catch (error) {
       console.error(error);
