@@ -1,10 +1,9 @@
 <script>
   import { onMount } from "svelte";
-  // import { userDetails } from "$lib/components/tokenStore.js";
 
-  let shipyard = undefined;
+  let shipyard = null;
   const token =
-    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiSERERERGSERIREhEIiwidmVyc2lvbiI6InYyLjIuMCIsInJlc2V0X2RhdGUiOiIyMDI0LTAzLTEwIiwiaWF0IjoxNzExMjU0MTEzLCJzdWIiOiJhZ2VudC10b2tlbiJ9.LWLSspQm1mHq3y7fuY092_XrbwROoZCtz9RnZemyTQDP2Dtc8EbS1BisAAPSuj9WznJT_40rD1JE3ECpYsSFkRKwvmwZog0d5q951lkhBFfsgICa3pVGt44cjz_ZiIesUTmuRM0rXzdsr521JSWn6iIT2Kdc_xFPPRWg21cmhXhEcK9APi_Ed2N47-XEZEQ8wbiTgaDHzFfo6w82-jY1FfO0t6l5IjrrgABU2ZTJqaXcx16GVcvvDUSYdhOUTkzfPugWCKYNovauY67BXdE3tIcyrg5X2gIy5gw4IkRQ0PSYqJeM4bSOZ6cmjZFZb__22Th1iQo0UggggH48QOVA1g";
+    "";
   const options = {
     method: "GET",
     headers: {
@@ -29,11 +28,12 @@
           msg: "No shipyard available at current waypoint",
         };
       } else {
+        // If successfully retrieved a shipyard, store the data object
         shipyard = jsonData.data;
         delete shipyard.transactions; // removing transactions as it's just too much unnecessary data
       }
 
-      console.log(shipyard);
+      //console.log(shipyard); // uncomment to test shipyard fetch
     } catch (error) {
       console.error("Error:", error);
     }
