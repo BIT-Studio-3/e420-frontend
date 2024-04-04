@@ -4,17 +4,12 @@
     // Redirecting to a different page when the button is clicked
     window.location.href = "/";
   }
+  
 
 </script>
-
-<button on:click={nameFunction}>Log In</button>
-
 <div class="outer-box">
+  <label for="login-header"><b>User Login</b></label>
   <div class="content">
-    <div class="top-buttons">
-      <a href="login" class="login-link">Login</a>
-      <a href="register" class="register-link">Register</a>
-    </div>
     <hr class="line" />
     <div class="input-container">
       <input
@@ -33,6 +28,8 @@
     </div>
     <div class="login">
       <button class="login-button" on:click={() => checkAgent()}>Login</button>
+      <!-- <button class="register-button">Register </button> -->
+      <a href="/register" class="register-link">Click Here To Register</a>
     </div>
     {#if $wrongToken}
       <p class="wrong-token-message">
@@ -43,8 +40,14 @@
 </div>
 
 <style>
-  /* label {
-    color: white;
+  label {
+    color: #3BBA9C;
+  }
+  .wrong-token-message{
+    color: #3BBA9C;
+  }
+  .register-link{
+    color: #3BBA9C;
   }
   input[type="text"] {
     width: 100%;
@@ -53,21 +56,38 @@
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-  } */
-  /* button {
+    border-radius: 15px;
+  } 
+  button {
     background-color: white;
     color: black;
-    padding: 14px 20px;
+    padding: 10px 20px;
     margin: 8px 0;
-    border: none; */
+    border: none; 
   /*displays a pointer cursor only when hovering over the 
   button helps to show the user that they are in fact on the interactive button*/
-  /* cursor: pointer;
-    width: 100%;
-  } */
+    cursor: pointer;
+    width: 30%;
+    border-radius: 25px;
+  } 
 
   /* hover effect for button */
   button:hover {
     opacity: 0.8;
+    background-color: #3BBA9C;
   }
+  .login{
+    display: flex;
+    justify-content: space-between;
+    
+  }
+
+  .register-link{
+    margin-top: 15px;
+  }
+
+  .outer-box {
+    font-family: 'Orbitron', sans-serif;
+  }
+
 </style>
