@@ -1,11 +1,11 @@
 <script>
   import { onMount } from "svelte";
-  // import { userDetails } from "$lib/components/tokenStore.js";
   import Buttons from "$lib/components/buttons.svelte";
 
   let contractArr = null;
   let temp = [];
-  const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiVVVJVSIsInZlcnNpb24iOiJ2Mi4yLjAiLCJyZXNldF9kYXRlIjoiMjAyNC0wMy0yNCIsImlhdCI6MTcxMTQyMDE0MSwic3ViIjoiYWdlbnQtdG9rZW4ifQ.YDTD_INb92K9ouz-9o-H_W072RrNUOOx67hvd3yVUBn_GQCvYP5bNRgQNELBoxOmo4hTJ545W9i0LVlgdIKiu_WtYa4GJh9Jbpx8s6hbU7hZ2VBymM-zJvmQAjZjsrC2SBOpt98uV4L3vjeCxpb_1O0gS5xEqkGqiVAyw6J58HVIBCMhSP_nltV5-pJ6OWvXHBJ-YgqjvaEf26sjgMpgNliedAnpcxAtdu3ByGCslOwc-Zd0HU_hENBf0JfvZzl8vjuYgvDrjDI_4OsILM4sgUfbfzSEkRJtSA5va6VHRTLDxyaxeIdZLkrzZhcbWB_05PK-f9bcHCkM0ntZeMIZVw";
+
+  const token = ""
   
   const options = {
     method: "GET",
@@ -14,34 +14,72 @@
       Authorization: `Bearer ${token}`,
     },
   };
-  
-  console.log(token)
-  
+
+
+  console.log(token);
+
+  // Function to accept a contract
+  async function acceptContract(contractId, isAccepted) {
+    try {
+      // Check if contract is still waiting to be accepted - accept if it hasn't already been accepted
+      if (isAccepted === false) {
+        const response = await fetch(
+          `https://api.spacetraders.io/v2/my/contracts/${contractId}/accept`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+
+        let json = await response.json();
+        console.log(json);
+
+        if (json.data) {
+          var successMessage = document.createElement('p');           // creates and declares a variable to store the created paragraph element
+          successMessage.textContent = "Accepted Contract Successfully";
+          document.body.appendChild(successMessage);                //displays the message on the page
+          // Display any contract accepted success message
+        }
+      } else {
+        var errorMessage = document.createElement('p');
+        errorMessage.textContent = "Contract already accepted";
+        document.body.appendChild(errorMessage);
+        // Displays error already accepted message
+      }
+    } catch (error) {
+      var errorMessage = document.createElement('p');
+      errorMessage.textContent = "An error has occured: " + error.message;
+      document.body.appendChild(errorMessage);
+      // Displays error message
+    }
+  }
+
   onMount(async () => {
     try {
-      // fetch contracts using options sent
+      // Fetch contracts using options sent
       const res = await fetch(
         "https://api.spacetraders.io/v2/my/contracts",
         options
         );
         // store json data
         let json = await res.json();
+        temp.push(json.data);
         contractArr = temp;
-      temp.push(json.data);
-      // uncomment below to see console output
+      // Uncomment below to see console output
       // console.log(temp);
     } catch (err) {
       console.error(err);
     }
   });
+  
   // console.log(contractArr);
 </script>
 
-<!-- contracts page wrap -->
 <div class="contracts-container">
-  <!-- box with border corners wrapping contracts -->
   <div class="inner-wrap">
-    <!-- wrap around all contracts in a row -->
     <div class="contracts-row">
       {#if contractArr}
         {#each contractArr as contracts}
@@ -61,7 +99,17 @@
                 </p>
                 <p>Expires: {contract.deadlineToAccept}</p>
                 <div class="line bottom" />
-                <Buttons/>
+                <!-- Use a button to trigger the acceptContract function -->
+                {#if contract.accepted == false}
+                  <button
+                    on:click={() =>
+                      acceptContract(contract.id, contract.accepted)}
+                    >Accept Contract</button
+                  >
+                {/if}
+                {#if contract.accepted == true}
+                  <p>Contract Accepted</p>
+                {/if}
               </div>
               <div class="border-bottom-container">
                 <div class="border-box left" />
