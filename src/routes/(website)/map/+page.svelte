@@ -52,6 +52,7 @@
           <div class="location-info-left">
             <p>Type:</p>
             <p>Position:</p>
+            <p>Orbitals:</p>
           </div>
           <div class="location-info-right">
             <p>{locationInfo.data.type}</p>
