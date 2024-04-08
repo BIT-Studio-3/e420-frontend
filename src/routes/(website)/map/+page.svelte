@@ -84,6 +84,10 @@
     background-color: #43455C;
     color: #3BBA9C;
     font-family: "Orbitron", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 </style>
