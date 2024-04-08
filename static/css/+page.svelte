@@ -8,9 +8,6 @@
     font-family: var(--font);
     } */
 
-.box {
-  border-radius: var(--border-radius);
-}
 :root {
     --color: #3BBA9C;
     --font: 'Orbitron', sans-serif;
