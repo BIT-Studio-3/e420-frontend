@@ -56,7 +56,6 @@
           <div class="location-info-right">
             <p>{locationInfo.data.type}</p>
             <p>{locationInfo.data.x}, {locationInfo.data.y}</p>
-            <p>{locationInfo.data.traits.join(", ")}</p>
           </div>
         </div>
         <div id="orbital-list">
@@ -96,6 +95,29 @@
     background-color: #43455C;
     color: #3BBA9C;
     font-family: "Orbitron", sans-serif;
+}
+
+.location-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.location-info-left,.location-info-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.location-info-left p,.location-info-right p {
+  margin: 0;
+}
+
+#orbital-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 </style>
