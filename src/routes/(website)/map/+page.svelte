@@ -42,11 +42,6 @@
     If the condition is false, Svelte will skip over the block and not render its contents-->
     {#if locationInfo}
       <div class= "location-details">
-        <!-- <p>Type: {locationInfo.data.type}</p>
-        <p>Symbol: {locationInfo.data.symbol}</p>
-        <p>X: {locationInfo.data.x}</p>
-        <p>Y: {locationInfo.data.y}</p>
-        <p>System Symbol: {locationInfo.systemSymbol}</p> -->
         <h2>{locationInfo.data.symbol}</h2>
         <div class="location-info-container">
           <div class="location-info-left">
@@ -77,6 +72,12 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  background-color: #43455C;
+  color: #3BBA9C;
+  width: 30%;
+  
+  border-radius: 0 20px 20px 0 / 0 25% 25% 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   }
 
   .poppins-regular {
@@ -108,7 +109,7 @@
 .location-info-left,.location-info-right {
   display: flex;
   flex-direction: column;
-}
+} 
 
 .location-info-left p,.location-info-right p {
   margin: 0;
@@ -121,4 +122,10 @@
   justify-content: center;
 }
 
+.orbital-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}
 </style>
