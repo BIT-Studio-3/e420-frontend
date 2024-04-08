@@ -42,11 +42,23 @@
     If the condition is false, Svelte will skip over the block and not render its contents-->
     {#if locationInfo}
       <div class= "location-details">
-        <p>Type: {locationInfo.data.type}</p>
+        <!-- <p>Type: {locationInfo.data.type}</p>
         <p>Symbol: {locationInfo.data.symbol}</p>
         <p>X: {locationInfo.data.x}</p>
         <p>Y: {locationInfo.data.y}</p>
-        <!-- <p>System Symbol: {locationInfo.systemSymbol}</p>-->
+        <p>System Symbol: {locationInfo.systemSymbol}</p> -->
+        <h2>{locationInfo.data.symbol}</h2>
+        <div class="location-info-container">
+          <div class="location-info-left">
+            <p>Type:</p>
+            <p>Position:</p>
+          </div>
+          <div class="location-info-right">
+            <p>{locationInfo.data.type}</p>
+            <p>{locationInfo.data.x}, {locationInfo.data.y}</p>
+            <p>{locationInfo.data.traits.join(", ")}</p>
+          </div>
+        </div>
         <div id="orbital-list">
           {#each locationInfo.data.orbitals as orbital (orbital.symbol)}
             <p>{orbital.symbol}</p>
@@ -84,10 +96,6 @@
     background-color: #43455C;
     color: #3BBA9C;
     font-family: "Orbitron", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 </style>
