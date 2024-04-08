@@ -5,8 +5,8 @@
   let contractArr = null;
   let temp = [];
 
-  const token = ""
-  
+  const token = "";
+
   const options = {
     method: "GET",
     headers: {
@@ -14,7 +14,6 @@
       Authorization: `Bearer ${token}`,
     },
   };
-
 
   console.log(token);
 
@@ -38,19 +37,19 @@
         console.log(json);
 
         if (json.data) {
-          var successMessage = document.createElement('p');           // creates and declares a variable to store the created paragraph element
+          var successMessage = document.createElement("p"); // creates and declares a variable to store the created paragraph element
           successMessage.textContent = "Accepted Contract Successfully";
-          document.body.appendChild(successMessage);                //displays the message on the page
+          document.body.appendChild(successMessage); //displays the message on the page
           // Display any contract accepted success message
         }
       } else {
-        var errorMessage = document.createElement('p');
+        var errorMessage = document.createElement("p");
         errorMessage.textContent = "Contract already accepted";
         document.body.appendChild(errorMessage);
         // Displays error already accepted message
       }
     } catch (error) {
-      var errorMessage = document.createElement('p');
+      var errorMessage = document.createElement("p");
       errorMessage.textContent = "An error has occured: " + error.message;
       document.body.appendChild(errorMessage);
       // Displays error message
@@ -62,19 +61,19 @@
       // Fetch contracts using options sent
       const res = await fetch(
         "https://api.spacetraders.io/v2/my/contracts",
-        options
-        );
-        // store json data
-        let json = await res.json();
-        temp.push(json.data);
-        contractArr = temp;
+        options,
+      );
+      // store json data
+      let json = await res.json();
+      temp.push(json.data);
+      contractArr = temp;
       // Uncomment below to see console output
       // console.log(temp);
     } catch (err) {
       console.error(err);
     }
   });
-  
+
   // console.log(contractArr);
 </script>
 
@@ -142,6 +141,10 @@
 
   .contract-box {
     width: 300px;
+    background-color: #2E3047; /* Change the background color of the box */
+    border-radius: 8px;
+    border: 1px solid #3BBA9C; /* Add a border with a color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin: 0px 40px;
   }
