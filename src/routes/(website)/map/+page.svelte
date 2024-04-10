@@ -4,14 +4,14 @@
   // import { userDetails } from "$lib/components/tokenStore.js";
 
   let locationInfo = null;
-  const locationSymbol = "X1-KA58-A1"; // headquarters symbol
-  const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiSEFIRkZKSkNIIiwidmVyc2lvbiI6InYyLjIuMCIsInJlc2V0X2RhdGUiOiIyMDI0LTAzLTI0IiwiaWF0IjoxNzExNjY1ODI0LCJzdWIiOiJhZ2VudC10b2tlbiJ9.jXErwbZI8Vk_pEyt6OGS3kQrvYvOn74dIvuFYF4OM8PhJBQpwXehCI6DFy-dgeFK-oc7-AikybIeh5RxensjdlxfueAWzb9PoE8mVOIW3QiAINMyI_v34uXg9CSfg1M24hIBX5LYJgAhL72xLyFT_vEWDe8we3-OJib8PcP6s03fs3cjwsGsDcrpTYoUplPb_QMHkDapCz0B0fJgrb3qWse_nqY16XshC3JuBgvYWfDqudtBkuwRZh1sLGkI4HS6LaW5g-p2_0k3Xrnq4iRz8Sh2jSZceRZk99P_uTxQLXNMUDI1tRgK7gfVoT4zRy0Q1YwJItKi-p7z3AC8fa-brQ";
+  const locationSymbol = "X1-HM65-A1"; // headquarters symbol
+  const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiSEpGSFVFRklKRklVIiwidmVyc2lvbiI6InYyLjIuMCIsInJlc2V0X2RhdGUiOiIyMDI0LTA0LTA5IiwiaWF0IjoxNzEyNzQyOTQ2LCJzdWIiOiJhZ2VudC10b2tlbiJ9.rtPWY0LJsrgkJlR4SHKcVw7UkDpz86kcB13Z7cx5Tl6vL8jyd-C2vJKjbKQZEgKgY6QuAkTq-lSWgx4HY78SaD5Pyx7QF9vYyrrbOxSq2iqG8b2E0t4KmC4m9nEWeDbqvMNla-f0bm96Y_oSGnAUYkM2cwm-1_PBVOoXlZiF01-7bsrB0ELOKa9MX77NvDv-d7iFVpWQF5A2PGatzVwNjZSLnWr20rJrg_Mvb3nno8AV_rp6DHVinpJkcQuJNdOe6fDu0shQoOw1sJcnM-KKm-sthYiX7LU3cEK-lhKn4MqeK__X81pDO3P0TYduVm4j62tConj66MM7MyicrOY_nw";
  
 
   onMount(async () => {
     try {
       const response = await fetch(
-        "https://api.spacetraders.io/v2/systems/X1-KA58/waypoints/X1-KA58-A1",
+        "https://api.spacetraders.io/v2/systems/X1-HM65/waypoints/X1-HM65-A1",
         {
           method: "GET",
           headers: {
