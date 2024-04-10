@@ -3,9 +3,9 @@
   import { onMount } from "svelte";
   // import { userDetails } from "$lib/components/tokenStore.js";
  
-  setTimeout(async() => { 
-    document.querySelector(".location-info").remove();
-  }, 3000);
+  // setTimeout(async() => { 
+  //   document.querySelector(".location-info").remove();
+  // }, 3000);
  
 
   let locationInfo = null;
@@ -28,6 +28,10 @@
       const responseData = await response.json();
       locationInfo = responseData; // Assign fetched data to the 'data' variable
       console.log("Location information received successfully:");
+      setTimeout(() => {
+        document.querySelector(".location-details").style.display = "block";
+        document.querySelector(".loading-message").remove();
+      }, 300);
     } catch (error) {
       console.error("Error:", error);
     }
