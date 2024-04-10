@@ -2,6 +2,11 @@
   //This will be he java script code for the fetching of the location
   import { onMount } from "svelte";
   // import { userDetails } from "$lib/components/tokenStore.js";
+ 
+  setTimeout(async() => { 
+    document.querySelector(".location-info").remove();
+  }, 3000);
+ 
 
   let locationInfo = null;
   const locationSymbol = "X1-HM65-A1"; // headquarters symbol
@@ -31,7 +36,7 @@
 </script>
 
 <body>
-  <div id="location-info">
+  <div class="location-info">
     <!-- this needs to be replaced with an actual loading animation -->
     <h1>Loading...</h1>
     <p>Fetching location information...</p>
