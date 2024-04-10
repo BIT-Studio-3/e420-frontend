@@ -38,8 +38,10 @@
 <body>
   <div class="location-info">
     <!-- this needs to be replaced with an actual loading animation -->
-    <h1>Loading...</h1>
-    <p>Fetching location information...</p>
+    <div class="loading-message">
+      <h1>Loading...</h1>
+      <p>Fetching location information...</p>
+    </div>
 
     <!-- The {#if locationInfo} directive is a conditional rendering block (in Svelte) that checks 
     if the locationInfo variable is truthy (i.e., not null, undefined, or an empty string). 
