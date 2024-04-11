@@ -1,6 +1,6 @@
 <script>
   import { token } from "../../../stores/index";
-  import { onDestroy } from "svelte";
+  // import { onDestroy } from "svelte"; // uncomment this to make a log out function
 
   let usernameValue = "";
   let tokenValue = "";
