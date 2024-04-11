@@ -6,6 +6,9 @@
   let usernameValue = "";
   let tokenValue = "";
   
+  // Use this in HTML to display different messages
+  let success = false;
+  token.subscribe((t) => (tokenValue = t));
 
   let unsubscribe = token.subscribe((t) => (tokenValue = t));
 
@@ -21,10 +24,13 @@
       const res = await fetch("https://api.spacetraders.io/v2/my/agent", options);
       const agent = await res.json();
       if (agent.data && agent.data.symbol === usernameValue.toUpperCase()) {
-        // token.subscribe((t) => (tokenValue = t));
         $token = tokenValue;
         usernameValue = "";
         tokenValue = "";
+        success = true;
+      } 
+      else {
+        success = false;
       }
     } catch(err) {
       console.error(err);
