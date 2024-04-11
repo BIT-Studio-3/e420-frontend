@@ -3,9 +3,9 @@
   import { token } from "../../../stores/index";
   import { onDestroy } from "svelte";
 
-  let username;
-  let tokenValue;
-  token.subscribe((t) => (tokenValue = t));
+  let usernameValue = "";
+  let tokenValue = "";
+  
 
   let unsubscribe = token.subscribe((t) => (tokenValue = t));
 
@@ -17,9 +17,18 @@
         Authorization: `Bearer ${tokenValue}`,
       },
     };
-
-    const res = await fetch("https://api.spacetraders.io/v2/my/agent", options);
-    const agent = await res.json();
+    try {
+      const res = await fetch("https://api.spacetraders.io/v2/my/agent", options);
+      const agent = await res.json();
+      if (agent.data && agent.data.symbol === usernameValue.toUpperCase()) {
+        // token.subscribe((t) => (tokenValue = t));
+        $token = tokenValue;
+        usernameValue = "";
+        tokenValue = "";
+      }
+    } catch(err) {
+      console.error(err);
+    }
   }
 
 </script>
