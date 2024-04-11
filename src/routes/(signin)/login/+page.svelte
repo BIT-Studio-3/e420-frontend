@@ -7,10 +7,15 @@
 
   // Use this in HTML to display different messages
   let success = true;
-  token.subscribe((t) => (tokenValue = t));
 
-  let unsubscribe = token.subscribe((t) => (tokenValue = t));
+  //token.subscribe((t) => (tokenValue = t));
 
+  //let unsubscribe = token.subscribe((t) => (tokenValue = t));
+
+  /** Attempts to fetch the agent the user wants to log in as.
+  * Provided that a token and username are supplied, the function will set the token store to be the token provided
+  * if a data object with a matching username is returned. If an error is returned in the response or the username does not match, the success flag will be false.
+  */
   async function handleLogin() {
     const options = {
       headers: {
@@ -20,14 +25,17 @@
       },
     };
     try {
+  // Get an agent using the token provided - this will return an agent or an error object
       const res = await fetch("https://api.spacetraders.io/v2/my/agent", options);
       const agent = await res.json();
+  //If an agent is returned AND the agent username matches the provided username, store the provided token in our token store
       if (agent.data && agent.data.symbol === usernameValue.toUpperCase()) {
         $token = tokenValue;
         usernameValue = "";
         tokenValue = "";
         success = true;
       } 
+  // If an error is returned or username does not match
       else {
         success = false;
       }
