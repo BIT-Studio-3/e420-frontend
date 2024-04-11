@@ -66,9 +66,9 @@
     <p>
       Current token: {$token}
     </p>
-    {#if $wrongToken}
+    {#if success == false}
       <p class="wrong-token-message">
-        Incorrect username and/or token, please try again
+        Invalid login details, please try again
       </p>
     {/if}
   </div>
