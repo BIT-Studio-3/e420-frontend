@@ -1,5 +1,4 @@
 <script>
-  import { checkAgent, wrongToken } from "$lib/components/tokenStore.js";
   import { token } from "../../../stores/index";
   import { onDestroy } from "svelte";
 
