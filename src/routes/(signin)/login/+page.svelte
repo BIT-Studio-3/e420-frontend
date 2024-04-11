@@ -25,7 +25,6 @@
       if (agent.data && agent.data.symbol === usernameValue.toUpperCase()) {
         $token = tokenValue;
         usernameValue = "";
-        tokenValue = "";
         success = true;
       } 
       else {
