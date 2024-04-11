@@ -5,7 +5,7 @@
   let contractArr = null;
   let temp = [];
 
-  const token = "";
+  const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiR09UVEhBVERBV0ciLCJ2ZXJzaW9uIjoidjIuMi4wIiwicmVzZXRfZGF0ZSI6IjIwMjQtMDQtMDkiLCJpYXQiOjE3MTI4Nzc4MjQsInN1YiI6ImFnZW50LXRva2VuIn0.ChfyAMJZc-BVJ-8DqIo_r3cH6mubDlFLGHikKmSHhpbRPL09A9TIUW_gQ5is3QHzR4zYclM4Muuln8SqbYAENVsxkJIJik3cECSwEE19SZm4y3wkspe56qCyhiQPmSbCuiHVEzUHWUu1ltC-l6wNyj5KVP3NGG72GMVPM33zBmIxY6EvW6W06nsAoIvdfKTHbxJHFqhJYwS7rgjd0E-CnCyXMvLhx3Wl6qQtzaHu_iJBwSYgzdF-Gwo9-xeAqrdSVKWYMyKEjEwDl91-mI17UwgWkYzDsKXrYZEaR5XztoxratN45IMqSUfYhFx7vdGvIA_vb2K6fZM_4fOd6JOC7A";
 
   const options = {
     method: "GET",
@@ -139,15 +139,31 @@
     width: 20px;
   } */
 
+
   .contract-box {
     width: 600px;
-    background-color: #2E3047; /* Changes the background color of the box */
+    background-color: rgb(87, 86, 86); /* Changes the background color of the box */
     border-radius: 8px;
-    border: 1px solid #3BBA9C; /* Adds a border with a color */
+    border: 2px solid #3BBA9C; /* Adds a border with a color */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin: 0px 40px;
+    margin: 0px auto;
+    font-family: 'Orbitron', sans-serif;
   }
+
+  button {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none; 
+    cursor: pointer;
+    width: 30%;
+    border-radius: 25px;
+    font-family: 'Orbitron', sans-serif;
+  } 
+  
+
 
   /* .contract-content {
   } */
