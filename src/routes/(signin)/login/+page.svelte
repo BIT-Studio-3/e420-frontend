@@ -5,7 +5,7 @@
 
   let usernameValue = "";
   let tokenValue = "";
-  
+
   // Use this in HTML to display different messages
   let success = false;
   token.subscribe((t) => (tokenValue = t));
@@ -44,12 +44,14 @@
     <hr class="line" />
     <div class="input-container">
       <input
+        bind:value={usernameValue}
         placeholder="Enter your username"
         class="input-username"
         type="text"
         id="username-input"
       />
       <input
+        bind:value={tokenValue}
         placeholder="Enter your token"
         class="input-token"
         type="text"
@@ -58,10 +60,12 @@
       />
     </div>
     <div class="login">
-      <button class="login-button" on:click={() => checkAgent()}>Login</button>
-      <!-- <button class="register-button">Register </button> -->
+      <button class="login-button" on:click={handleLogin}>Login</button>
       <a href="/register" class="register-link">Click Here To Register</a>
     </div>
+    <p>
+      Current token: {$token}
+    </p>
     {#if $wrongToken}
       <p class="wrong-token-message">
         Incorrect username and/or token, please try again
