@@ -7,7 +7,7 @@
   let tokenValue = "";
 
   // Use this in HTML to display different messages
-  let success = false;
+  let success = true;
   token.subscribe((t) => (tokenValue = t));
 
   let unsubscribe = token.subscribe((t) => (tokenValue = t));
@@ -63,9 +63,9 @@
       <button class="login-button" on:click={handleLogin}>Login</button>
       <a href="/register" class="register-link">Click Here To Register</a>
     </div>
-    <p>
-      Current token: {$token}
-    </p>
+    <div class="test-login">
+      <span class="test-text">Current token: {$token}</span>
+    </div>
     {#if success == false}
       <p class="wrong-token-message">
         Invalid login details, please try again
@@ -105,6 +105,21 @@
     width: 30%;
     border-radius: 25px;
   } 
+  .test-login {
+    font-size: x-small;
+    width: 500px;
+    display: block;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .test-text {
+    width: 50px;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
+  }
 
   /* hover effect for button */
   button:hover {
