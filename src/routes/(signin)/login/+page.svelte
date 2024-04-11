@@ -1,10 +1,26 @@
 <script>
   import { checkAgent, wrongToken } from "$lib/components/tokenStore.js";
-  function nameFunction() {
-    // Redirecting to a different page when the button is clicked
-    window.location.href = "/";
+  import { token } from "../../../stores/index";
+  import { onDestroy } from "svelte";
+
+  let username;
+  let tokenValue;
+  token.subscribe((t) => (tokenValue = t));
+
+  let unsubscribe = token.subscribe((t) => (tokenValue = t));
+
+  async function handleLogin() {
+    const options = {
+      headers: {
+        //includes headers of fetched data
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${tokenValue}`,
+      },
+    };
+
+    const res = await fetch("https://api.spacetraders.io/v2/my/agent", options);
+    const agent = await res.json();
   }
-  
 
 </script>
 <div class="outer-box">

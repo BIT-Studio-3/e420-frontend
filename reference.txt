@@ -8,3 +8,6 @@ https://flaviocopes.com/svelte-export-from-component/
 Local storage + authentication
 https://alphonso-javier.medium.com/svelte-simple-login-with-local-storage-and-stores-723759da36b3
 https://ashutosh.dev/how-to-do-authentication-in-svelte-using-store/
+
+page.js sveltekit
+https://kit.svelte.dev/docs/load
