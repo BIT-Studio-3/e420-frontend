@@ -5,7 +5,7 @@
   let contractArr = null;
   let temp = [];
 
-  const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiR09UVEhBVERBV0ciLCJ2ZXJzaW9uIjoidjIuMi4wIiwicmVzZXRfZGF0ZSI6IjIwMjQtMDQtMDkiLCJpYXQiOjE3MTI4Nzc4MjQsInN1YiI6ImFnZW50LXRva2VuIn0.ChfyAMJZc-BVJ-8DqIo_r3cH6mubDlFLGHikKmSHhpbRPL09A9TIUW_gQ5is3QHzR4zYclM4Muuln8SqbYAENVsxkJIJik3cECSwEE19SZm4y3wkspe56qCyhiQPmSbCuiHVEzUHWUu1ltC-l6wNyj5KVP3NGG72GMVPM33zBmIxY6EvW6W06nsAoIvdfKTHbxJHFqhJYwS7rgjd0E-CnCyXMvLhx3Wl6qQtzaHu_iJBwSYgzdF-Gwo9-xeAqrdSVKWYMyKEjEwDl91-mI17UwgWkYzDsKXrYZEaR5XztoxratN45IMqSUfYhFx7vdGvIA_vb2K6fZM_4fOd6JOC7A";
+  const token = "";
 
   const options = {
     method: "GET",
@@ -153,7 +153,7 @@
     width: 30%;
     border-radius: 25px;
     font-family: 'Orbitron', sans-serif;
-    color: #3BBA9C;
+    color: #000000;
   } 
 
   button:hover {
