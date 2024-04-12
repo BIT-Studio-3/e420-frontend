@@ -128,28 +128,20 @@
     margin: 20px 5px 10px;
   }
 
-  /* .top {
-    margin-bottom: 20px;
-  } */
-
-  /* .border-box {
-    border-left: 1px solid #98e6ff;
-    border-bottom: 1px solid #98e6ff;
-    height: 20px;
-    width: 20px;
-  } */
-
-
   .contract-box {
     width: 600px;
     background-color: rgb(87, 86, 86); /* Changes the background color of the box */
-    border-radius: 8px;
-    border: 2px solid #3BBA9C; /* Adds a border with a color */
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin: 0px auto;
     font-family: 'Orbitron', sans-serif;
+    color: #3BBA9C;
+    padding: 20px;
   }
+
 
   button {
     background-color: white;
@@ -161,10 +153,17 @@
     width: 30%;
     border-radius: 25px;
     font-family: 'Orbitron', sans-serif;
+    color: #3BBA9C;
   } 
+
+  button:hover {
+    opacity: 0.8;
+    background-color: #3BBA9C;
+  }
   
 
 
-  /* .contract-content {
-  } */
+   .contract-content {
+    margin: 20px;
+  } 
 </style>
