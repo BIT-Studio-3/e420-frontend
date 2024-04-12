@@ -5,6 +5,7 @@ export const wrongToken = writable(false);
 export const usernameValue = writable("empty");
 let userDetails = [];
 
+//
 export async function checkAgent() {
   try {
     const tokenInput = document.getElementById("token-input");

@@ -1,10 +1,48 @@
 <script>
-  import { checkAgent, wrongToken } from "$lib/components/tokenStore.js";
-  function nameFunction() {
-    // Redirecting to a different page when the button is clicked
-    window.location.href = "/";
+  import { token } from "../../../stores/index";
+  // import { onDestroy } from "svelte"; // uncomment this to make a log out function
+
+  let usernameValue = "";
+  let tokenValue = "";
+
+  // Use this in HTML to display different messages
+  let success = true;
+
+  //token.subscribe((t) => (tokenValue = t));
+
+  //let unsubscribe = token.subscribe((t) => (tokenValue = t));
+
+  /** Attempts to fetch the agent the user wants to log in as.
+  * Provided that a token and username are supplied, the function will set the token store to be the token provided
+  * if a data object with a matching username is returned. If an error is returned in the response or the username does not match, the success flag will be false.
+  */
+  async function handleLogin() {
+    const options = {
+      headers: {
+        //includes headers of fetched data
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${tokenValue}`,
+      },
+    };
+    try {
+  // Get an agent using the token provided - this will return an agent or an error object
+      const res = await fetch("https://api.spacetraders.io/v2/my/agent", options);
+      const agent = await res.json();
+  //If an agent is returned AND the agent username matches the provided username, store the provided token in our token store
+      if (agent.data && agent.data.symbol === usernameValue.toUpperCase()) {
+        $token = tokenValue;
+        usernameValue = "";
+        tokenValue = "";
+        success = true;
+      } 
+  // If an error is returned or username does not match
+      else {
+        success = false;
+      }
+    } catch(err) {
+      console.error(err);
+    }
   }
-  
 
 </script>
 <div class="outer-box">
@@ -13,12 +51,14 @@
     <hr class="line" />
     <div class="input-container">
       <input
+        bind:value={usernameValue}
         placeholder="Enter your username"
         class="input-username"
         type="text"
         id="username-input"
       />
       <input
+        bind:value={tokenValue}
         placeholder="Enter your token"
         class="input-token"
         type="text"
@@ -27,13 +67,15 @@
       />
     </div>
     <div class="login">
-      <button class="login-button" on:click={() => checkAgent()}>Login</button>
-      <!-- <button class="register-button">Register </button> -->
+      <button class="login-button" on:click={handleLogin}>Login</button>
       <a href="/register" class="register-link">Click Here To Register</a>
     </div>
-    {#if $wrongToken}
+    <div class="test-login">
+      <span class="test-text">Current token: {$token}</span>
+    </div>
+    {#if success == false}
       <p class="wrong-token-message">
-        Incorrect username and/or token, please try again
+        Invalid login details, please try again
       </p>
     {/if}
   </div>
@@ -70,6 +112,21 @@
     width: 30%;
     border-radius: 25px;
   } 
+  .test-login {
+    font-size: x-small;
+    width: 500px;
+    display: block;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .test-text {
+    width: 50px;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
+  }
 
   /* hover effect for button */
   button:hover {
