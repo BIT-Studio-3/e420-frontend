@@ -4,23 +4,28 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
 <nav>
   <ul class="nav-words">
     <li>
-      <a id="Login">
+      <a href="/login" id="Login">
         <div>Login</div>
       </a>
     </li>
     <li>
-      <a id="Buy">
+            <a href="/" id="Home">
+        <div>Home</div>
+      </a>
+    </li>
+    <li>
+      <a href="/buy" id="Buy">
         <div>Buy</div>
       </a>
     </li>
     <li>
-      <a id="Loan">
+      <a href="/loan" id="Loan">
         <div>Loan</div>
       </a>
     </li>
     <li>
-      <a id="Controls">
-        <div>Controls</div>
+      <a href="/contracts" id="contracts">
+        <div>Contracts</div>
       </a>
     </li>
   </ul>
@@ -38,6 +43,8 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
   nav a {
     /* Center-align text within anchor tags */
     text-align: center;
+    color: white;
+    text-decoration: none;
   }
 
   /* Styling for the unordered list within the navigation bar */
