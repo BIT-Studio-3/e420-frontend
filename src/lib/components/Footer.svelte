@@ -30,7 +30,7 @@
     display: flex;
     padding: 4vh 5vw;
     justify-content: space-between;
-    background-color: rgb(66, 66, 66);
+    background-color:#43455C;
   }
 
   .footer_content_left {

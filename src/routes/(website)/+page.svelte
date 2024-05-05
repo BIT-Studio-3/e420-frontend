@@ -25,11 +25,11 @@
   <div class="game_container">
     <div class="left_game_screen">
       <div class="button_bar">
-        <a href="/" class="button" on:click={marketplace}>marketplace</a>
+        <a href="/" class="button" on:click={marketplace}>Marketplace</a>
         <!-- when you click the 'marketplace' button-->
         <a href="/" class="button" on:click={loan}>Login</a>
-        <a href="/" class="button" on:click={fleet}>fleet</a>
-        <a href="/" class="button" on:click={player_details}>location details</a
+        <a href="/" class="button" on:click={fleet}>Fleet</a>
+        <a href="/" class="button" on:click={player_details}>Location Details</a
         >
       </div>
       <!-- {#if displayMe == "details"} -->
@@ -59,7 +59,7 @@
   }
   .left_game_screen {
     flex: 50%;
-    background-color: grey;
+    background-color: #43455C;
     /* padding: 5px; */
     border: 2.5px solid black;
   }
@@ -74,12 +74,26 @@
     text-align: center;
     padding: 10px;
     gap: 2px;
+    font-family: "Orbitron", sans-serif;
     font-size: 15.5px;
-    border: 2.5px solid black;
-    border-radius: 2.5px;
-    background-color: darkgray;
-    color: black;
+    
+    background-color:#43455C;
+    color:white;
   }
+  .button::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #3BBA9C;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.button:hover::after {
+    width: 100%;
+}
+  
 
   .button_bar {
     display: flex;

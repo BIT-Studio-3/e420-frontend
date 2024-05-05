@@ -53,18 +53,18 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
   nav > div {
     padding: 15px 25px;
   }
+ 
+  .nav-words {
+    font-family: "Orbitron", sans-serif;
+    color: white;
+    font-size: 20px;
+  } 
+
   .nav-words :hover {
     /* Change background color on hover */
     background-color: #3BBA9C !important;
     border-radius: 9%;
     /* Change text color on hover */
     color: black;
-
-  }
-
-  .nav-words {
-    font-family: "Orbitron", sans-serif;
-    color: white;
-    font-size: 20px;
-  }
+  }  
 </style>
