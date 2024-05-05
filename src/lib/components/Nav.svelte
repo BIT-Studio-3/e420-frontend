@@ -56,8 +56,10 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
   .nav-words :hover {
     /* Change background color on hover */
     background-color: #3BBA9C !important;
+    border-radius: 9%;
     /* Change text color on hover */
     color: black;
+
   }
 
   .nav-words {
