@@ -55,13 +55,14 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
   }
   .nav-words :hover {
     /* Change background color on hover */
-    background-color: #17d8ce !important;
+    background-color: #3BBA9C !important;
     /* Change text color on hover */
     color: black;
   }
 
   .nav-words {
+    font-family: "Orbitron", sans-serif;
     color: white;
-    font-size: 24px;
+    font-size: 20px;
   }
 </style>

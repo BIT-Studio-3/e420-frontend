@@ -11,7 +11,7 @@
 
 <style>
   header {
-    background-color: rgb(66, 66, 66);
+    background-color:#43455C;
   }
 
   .nav-logo {
