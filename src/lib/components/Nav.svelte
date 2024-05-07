@@ -14,13 +14,13 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
       </a>
     </li>
     <li>
-      <a href="/buy" id="Buy">
-        <div>Buy</div>
+      <a href="/map" id="Buy">
+       <div>Map</div> 
       </a>
     </li>
     <li>
       <a href="/loan" id="Loan">
-        <div>Loan</div>
+      <!--  <div>Loan</div> -->
       </a>
     </li>
     <li>
