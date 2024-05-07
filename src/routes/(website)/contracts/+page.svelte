@@ -5,8 +5,8 @@
   let contractArr = null;
   let temp = [];
 
-  const token = ""
-  
+  const token = "";
+
   const options = {
     method: "GET",
     headers: {
@@ -14,7 +14,6 @@
       Authorization: `Bearer ${token}`,
     },
   };
-
 
   console.log(token);
 
@@ -38,19 +37,19 @@
         console.log(json);
 
         if (json.data) {
-          var successMessage = document.createElement('p');           // creates and declares a variable to store the created paragraph element
+          var successMessage = document.createElement("p"); // creates and declares a variable to store the created paragraph element
           successMessage.textContent = "Accepted Contract Successfully";
-          document.body.appendChild(successMessage);                //displays the message on the page
+          document.body.appendChild(successMessage); //displays the message on the page
           // Display any contract accepted success message
         }
       } else {
-        var errorMessage = document.createElement('p');
+        var errorMessage = document.createElement("p");
         errorMessage.textContent = "Contract already accepted";
         document.body.appendChild(errorMessage);
         // Displays error already accepted message
       }
     } catch (error) {
-      var errorMessage = document.createElement('p');
+      var errorMessage = document.createElement("p");
       errorMessage.textContent = "An error has occured: " + error.message;
       document.body.appendChild(errorMessage);
       // Displays error message
@@ -62,19 +61,19 @@
       // Fetch contracts using options sent
       const res = await fetch(
         "https://api.spacetraders.io/v2/my/contracts",
-        options
-        );
-        // store json data
-        let json = await res.json();
-        temp.push(json.data);
-        contractArr = temp;
+        options,
+      );
+      // store json data
+      let json = await res.json();
+      temp.push(json.data);
+      contractArr = temp;
       // Uncomment below to see console output
       // console.log(temp);
     } catch (err) {
       console.error(err);
     }
   });
-  
+
   // console.log(contractArr);
 </script>
 
@@ -129,23 +128,42 @@
     margin: 20px 5px 10px;
   }
 
-  /* .top {
-    margin-bottom: 20px;
-  } */
-
-  /* .border-box {
-    border-left: 1px solid #98e6ff;
-    border-bottom: 1px solid #98e6ff;
-    height: 20px;
-    width: 20px;
-  } */
-
   .contract-box {
-    width: 300px;
+    width: 600px;
+    background-color: rgb(87, 86, 86); /* Changes the background color of the box */
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin: 0px 40px;
+    margin: 0px auto;
+    font-family: 'Orbitron', sans-serif;
+    color: #3BBA9C;
+    padding: 20px;
   }
 
-  /* .contract-content {
-  } */
+
+  button {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none; 
+    cursor: pointer;
+    width: 30%;
+    border-radius: 25px;
+    font-family: 'Orbitron', sans-serif;
+    color: #000000;
+  } 
+
+  button:hover {
+    opacity: 0.8;
+    background-color: #3BBA9C;
+  }
+  
+
+
+   .contract-content {
+    margin: 20px;
+  } 
 </style>
