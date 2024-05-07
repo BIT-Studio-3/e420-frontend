@@ -9,18 +9,18 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
       </a>
     </li>
     <li>
-            <a href="/" id="Home">
+      <a href="/" id="Home">
         <div>Home</div>
       </a>
     </li>
     <li>
       <a href="/map" id="Buy">
-       <div>Map</div> 
+        <div>Map</div>
       </a>
     </li>
     <li>
       <a href="/loan" id="Loan">
-      <!--  <div>Loan</div> -->
+        <!--  <div>Loan</div> -->
       </a>
     </li>
     <li>
