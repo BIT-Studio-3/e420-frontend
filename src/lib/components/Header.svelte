@@ -2,9 +2,11 @@
   import Nav from "$lib/components/Nav.svelte";
 </script>
 
+<div class="hover-area">
 <header class="floating-header">
   <Nav />
 </header>
+</div> 
 
 <style>
   body {
@@ -14,9 +16,19 @@
     background-color: #f0f0f0; /* Light background for contrast */
   }
 
+  .hover-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px; /* Height of the hover area */
+  z-index: 1001; /* Ensure hover area is above header */
+}
+
+
   .floating-header {
     position: fixed; /* Keeps the header fixed at the top of the viewport */
-    top: 20px; /* Distance from the top of the page */
+    top: -100px; /* Distance from the top of the page */
     left: 50%; /* Centers the header horizontally */
     transform: translateX(-50%); /* Adjusts the horizontal centering */
     background-color: rgb(66, 66, 66); 
@@ -27,5 +39,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: top 0.3s ease-in-out;
   }
+
+  .hover-area:hover .floating-header {
+    top: 0;
+  }
+
 </style>
