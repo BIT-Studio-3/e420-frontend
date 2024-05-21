@@ -61,8 +61,10 @@
   }
 
   .nav-words li:hover {
-    background-color: #17d8ce !important;
+    background-color: rgba(250, 250, 250, 0.3) !important;
     color: black;
+    border-radius: 40%;
+    padding: 1px;
   }
 
   .nav-words {

@@ -21,7 +21,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 200px; /* Height of the hover area */
+  height: 50px; /* Height of the hover area */
   z-index: 1001; /* Ensure hover area is above header */
 }
 
@@ -31,7 +31,8 @@
     top: -100px; /* Distance from the top of the page */
     left: 50%; /* Centers the header horizontally */
     transform: translateX(-50%); /* Adjusts the horizontal centering */
-    background-color: rgb(66, 66, 66); 
+    background-color: transparent; 
+    border: 4px solid rgb(255, 255, 255);
     border-radius: 70px; 
     padding: 1px, 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
