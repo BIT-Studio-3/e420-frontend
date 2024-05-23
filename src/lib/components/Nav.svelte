@@ -1,6 +1,7 @@
-<!-- Navigation bar structure -->
-<!-- seems to be an unorder list with more list items inside- Login  Buy  Loan  Controls 
-each has an anchor tag along with an additinal div for its self. The Nav bar will be a horizontal line-->
+<script>
+  // Nav.svelte doesn't need any JavaScript in this example
+</script>
+
 <nav>
   <ul class="nav-words">
     <li>
@@ -14,7 +15,7 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
       </a>
     </li>
     <li>
-      <a href="/map" id="Buy">
+      <a href="/map" id="Map">
         <div>Map</div>
       </a>
     </li>
@@ -24,7 +25,7 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
       </a>
     </li>
     <li>
-      <a href="/contracts" id="contracts">
+      <a href="/contracts" id="Contracts">
         <div>Contracts</div>
       </a>
     </li>
@@ -38,16 +39,15 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
     flex-wrap: wrap;
     overflow: hidden;
     width: 100%;
-    padding: 80px;
+    padding: 20px; /* Adjust padding for consistency */
   }
+
   nav a {
-    /* Center-align text within anchor tags */
     text-align: center;
     color: white;
     text-decoration: none;
   }
 
-  /* Styling for the unordered list within the navigation bar */
   nav ul {
     display: flex;
     list-style: none;
@@ -55,20 +55,20 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
     padding: 0;
   }
 
-  /* Styling for the list items within the unordered list */
   nav ul li a div,
   nav > div {
     padding: 15px 25px;
   }
-  .nav-words :hover {
-    /* Change background color on hover */
-    background-color: #17d8ce !important;
-    /* Change text color on hover */
+
+  .nav-words li:hover {
+    background-color: rgba(250, 250, 250, 0.3) !important;
     color: black;
+    border-radius: 40%;
+    padding: 1px;
   }
 
   .nav-words {
     color: white;
-    font-size: 24px;
+    font-size: 15px;
   }
 </style>
