@@ -1,24 +1,43 @@
 <div class="dashbaord">
-    <h1>Dashbaord</h1>
-    <div class="user">
+  <div class="dashbaord-left">
+  <h1>Dashbaord</h1>
+  <div class="user">
+    <ul>
+      <li>Username:</li>
+      <li>Credits:</li>
+    </ul>
+  </div>
+  <div class="active-Loans">
+    <h3>Active Loans</h3>
+    <ul>
+      <li>Type:</li>
+      <li>Due:</li>
+      <li>Repayment Amount:</li>
+      <li>Status:</li>
+    </ul>
+  </div>
+  <div class="owned-Ships">
+    <h3>Owned Ships</h3>
+    <p>ship name</p>
+  </div>
+</div>
+
+<div class="dashbaord-right">
+  <div class="user-info">
+    <ul>
+      <li>sophie.skyyye</li>
+      <li>116,000</li>
+    </ul>
+  </div>
+    <div class="loans-info">
       <ul>
-        <li>Username:</li>
-        <li>Credits:</li>
+        <li>Starter Loan</li>
+        <li>05/11/2024</li>
+        <li>280,000</li>
+        <li>Current</li>
       </ul>
     </div>
-    <div class="active-Loans">
-      <h3>Active Loans</h3>
-      <ul>
-        <li>Type:</li>
-        <li>Due:</li>
-        <li>Repayment Amount:</li>
-        <li>Status:</li>
-      </ul>
-    </div>
-    <div class="owned-Ships">
-      <h3>Owned Ships</h3>
-      <p>ship name</p>
-    </div>
+  </div>
 </div>
 
 <style>
@@ -28,8 +47,26 @@
   color: white;
 }
 
+.dashbaord ul{
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}
+
 .dashbaord ul li{
   list-style: none;
+}
+
+.dashboard-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashbaord-right{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
 }
 </style>
 
