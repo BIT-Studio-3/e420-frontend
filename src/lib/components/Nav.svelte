@@ -1,56 +1,3 @@
-   <!-- <nav>
-    <a id="Login" class="nav-words">
-      <div>Login</div>
-    </a>
-    <a id="Buy" class="nav-words">
-      <div>Buy</div>
-    </a>
-    <a id="Loan" class="nav-words">
-      <div>Loan</div>
-    </a>
-    <a id="Controls" class="nav-words">
-      <div>Controls</div>
-    </a>
-  </nav>
-
-<style>
-    nav {
-      display: flex;
-      justify-content: center;
-      overflow: hidden;
-      padding: 20px 0;
-      gap: 20px;
-    }
-
-    nav a {
-      text-align: center;
-      padding: 10px;
-      position: relative;
-      transition: background-color 0.3s ease;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -1px;
-      width: 0;
-      height: 2px;
-      background-color: #3BBA9C;
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .nav-words {
-      font-family: "Orbitron", sans-serif;
-      color: white;
-      font-size: 18px;
-    }
-  </style> -->
-
 <!-- Navigation bar structure -->
 <!-- seems to be an unorder list with more list items inside- Login  Buy  Loan  Controls 
 each has an anchor tag along with an additinal div for its self. The Nav bar will be a horizontal line-->
@@ -64,7 +11,6 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
     </ul>
   </div>
 </nav>
-
 
 <style>
   nav{
@@ -112,6 +58,7 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
 
 
 
+<!-- Old styling  -->
 <!-- <style>
   nav {
     display: flex;
@@ -140,31 +87,17 @@ each has an anchor tag along with an additinal div for its self. The Nav bar wil
     padding: 15px 25px;
   }
  
-  .links {
+  .nav-words {
     font-family: "Orbitron", sans-serif;
     color: white;
     font-size: 20px;
   } 
 
- nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -1px;
-      width: 0;
-      height: 2px;
-      background-color: #3BBA9C;
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-  /* .nav-words :hover {
+  .nav-words :hover {
     Change background color on hover 
     background-color: #3BBA9C !important;
     border-radius: 9%;
     Change text color on hover 
     color: black;
-  }  */
+  } 
 </style> -->
