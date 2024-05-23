@@ -1,4 +1,48 @@
-<script>
+<div class="dashbaord">
+    <h1>Dashbaord</h1>
+    <div class="user">
+      <ul>
+        <li>Username:</li>
+        <li>Credits:</li>
+      </ul>
+    </div>
+    <div class="active-Loans">
+      <h3>Active Loans</h3>
+      <ul>
+        <li>Type:</li>
+        <li>Due:</li>
+        <li>Repayment Amount:</li>
+        <li>Status:</li>
+      </ul>
+    </div>
+    <div class="owned-Ships">
+      <h3>Owned Ships</h3>
+      <p>ship name</p>
+    </div>
+</div>
+
+<style>
+.dashbaord{  
+  text-decoration: none;
+  font-family: "Orbitron", sans-serif;
+  color: white;
+}
+
+.dashbaord ul li{
+  list-style: none;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+<!-- <script>
   // import Location from "$lib/components/Location.svelte";
 
   let displayMe = "";
@@ -18,35 +62,34 @@
       displayMe = "";
     }
   }
-</script>
-
+</script> -->
 <!-- game front end  -->
-<div class="game_background">
+<!-- <div class="game_background">
   <div class="game_container">
     <div class="left_game_screen">
       <div class="button_bar">
         <a href="/" class="button" on:click={marketplace}>Marketplace</a>
-        <!-- when you click the 'marketplace' button-->
+        when you click the 'marketplace' button-
         <a href="/" class="button" on:click={loan}>Login</a>
         <a href="/" class="button" on:click={fleet}>Fleet</a>
         <a href="/" class="button" on:click={player_details}>Location Details</a
         >
       </div>
-      <!-- {#if displayMe == "details"} -->
-      <!-- <Location /> -->
-      <!-- {:else if displayMe == "fleet"} -->
+        {#if displayMe == "details"} 
+       <Location /> 
+      {:else if displayMe == "fleet"} 
 
-      <!-- {:else}
-        <p>{x} is between 5 and 10</p> - -->
-      <!-- {/if} -->
+      {:else}
+        <p>{x} is between 5 and 10</p> - 
+      {/if} 
     </div>
     <div class="left_game_screen">
       <img src="..\map-of-planets.png" alt="placeHolderMap" />
     </div>
   </div>
-</div>
+</div> -->
 
-<style>
+<!-- <style>
   /* gives the spacing around the games front end */
   .game_background {
     padding: 75px;
@@ -102,4 +145,4 @@
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
   }
-</style>
+</style> -->
