@@ -1,19 +1,18 @@
 <div class="dashbaord">
-  <div class="dashbaord-left">
-  <h1>Dashbaord</h1>
+ <h1>Dashbaord</h1>
   <div class="user">
     <ul>
-      <li>Username:</li>
-      <li>Credits:</li>
+      <li>Username: sophie.skyyye</li>
+      <li>Credits:  116,000</li>
     </ul>
   </div>
   <div class="active-Loans">
     <h3>Active Loans</h3>
     <ul>
-      <li>Type:</li>
-      <li>Due:</li>
-      <li>Repayment Amount:</li>
-      <li>Status:</li>
+      <li>Type:             Starter Loan</li>
+      <li>Due:              05/11/2024</li>
+      <li>Repayment Amount: 280,000</li>
+      <li>Status:           Current</li>
     </ul>
   </div>
   <div class="owned-Ships">
@@ -22,7 +21,7 @@
   </div>
 </div>
 
-<div class="dashbaord-right">
+<!-- <div class="dashbaord-right">
   <div class="user-info">
     <ul>
       <li>sophie.skyyye</li>
@@ -38,13 +37,15 @@
       </ul>
     </div>
   </div>
-</div>
+</div> -->
 
 <style>
 .dashbaord{  
   text-decoration: none;
   font-family: "Orbitron", sans-serif;
   color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .dashbaord ul{
@@ -57,28 +58,17 @@
   list-style: none;
 }
 
-.dashboard-left {
-  display: flex;
-  flex-direction: column;
-}
-
-.dashbaord-right{
+/* .dashbaord-right{
   display: flex;
   flex-direction: column;
   align-items:center;
   justify-content: center;
-}
+} */
 </style>
 
 
-
-
-
-
-
-
-
-
+<!-- ---------------------------------------------------------------------------- -->
+<!-- Old code -->
 <!-- <script>
   // import Location from "$lib/components/Location.svelte";
 
