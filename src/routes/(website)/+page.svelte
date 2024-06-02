@@ -1,5 +1,16 @@
 <!-- Page layout -->
+<div class="main-container">
+  <div class="container-1">
+    <div class="dashboard">
 
+    </div>
+  </div>
+  <div class="container-2">
+    <div class="planet">
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -77,6 +88,7 @@
 <!-- ---------------------------------------------------------------------------- -->
 <!-- Old code -->
 <!-- <script>
+	import { DriverData } from './../../../.svelte-kit/ambient.d.ts';
   // import Location from "$lib/components/Location.svelte";
 
   let displayMe = "";
