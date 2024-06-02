@@ -2,42 +2,36 @@
 <div class="main-container">
   <div class="container-1">
     <div class="dashboard">
-
+      <h1>Dashbaord</h1>
+      <div class="user">
+        <ul>
+          <li>Username: sophie.skyyye</li>
+          <li>Credits:  116,000</li>
+        </ul>
+      </div>
+      <div class="active-Loans">
+        <h3>Active Loans</h3>
+        <ul>
+          <li>Type:             Starter Loan</li>
+          <li>Due:              05/11/2024</li>
+          <li>Repayment Amount: 280,000</li>
+          <li>Status:           Current</li>
+        </ul>
+      </div>
+      <div class="owned-Ships">
+        <h3>Owned Ships</h3>
+        <p>ship name</p>
+      </div>
     </div>
   </div>
   <div class="container-2">
     <div class="planet">
-      
+        <p>planets </p>
     </div>
   </div>
 </div>
 
 
-
-
-
-<div class="dashbaord">
- <h1>Dashbaord</h1>
-  <div class="user">
-    <ul>
-      <li>Username: sophie.skyyye</li>
-      <li>Credits:  116,000</li>
-    </ul>
-  </div>
-  <div class="active-Loans">
-    <h3>Active Loans</h3>
-    <ul>
-      <li>Type:             Starter Loan</li>
-      <li>Due:              05/11/2024</li>
-      <li>Repayment Amount: 280,000</li>
-      <li>Status:           Current</li>
-    </ul>
-  </div>
-  <div class="owned-Ships">
-    <h3>Owned Ships</h3>
-    <p>ship name</p>
-  </div>
-</div>
 
 <!-- <div class="dashbaord-right">
   <div class="user-info">
@@ -58,7 +52,7 @@
 </div> -->
 
 <style>
-.dashbaord{  
+.dashboard{  
   text-decoration: none;
   font-family: "Orbitron", sans-serif;
   color: white;
