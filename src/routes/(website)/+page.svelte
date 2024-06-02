@@ -2,7 +2,7 @@
 <div class="main-container">
   <div class="container-1">
     <div class="dashboard">
-      <h1>Dashbaord</h1>
+      <h1>Dashboard</h1>
       <div class="user">
         <ul>
           <li>Username: sophie.skyyye</li>
@@ -25,51 +25,43 @@
     </div>
   </div>
   <div class="container-2">
-    <div class="planet">
-        <p>planets </p>
+    <div class="planet-Location">
+        <h1>You are here</h1>
+        <p>------------------------------------------------<br>
+          <br>
+          <br>
+          <br>
+          <br>
+                        Planet Image<br>
+          <br>
+          <br>
+          <br>
+          <br>
+           ------------------------------------------------</p>
+           <p class="planetInfo">
+            Icy planet with flesh eating bacteria aproach with the <br>
+            appropriate safety gear
+           </p>
     </div>
   </div>
 </div>
 
 
-
-<!-- <div class="dashbaord-right">
-  <div class="user-info">
-    <ul>
-      <li>sophie.skyyye</li>
-      <li>116,000</li>
-    </ul>
-  </div>
-    <div class="loans-info">
-      <ul>
-        <li>Starter Loan</li>
-        <li>05/11/2024</li>
-        <li>280,000</li>
-        <li>Current</li>
-      </ul>
-    </div>
-  </div>
-</div> -->
-
 <style>
 .main-container {
-    display: flex;
-    margin: 20px; 
-  }
-
-  .container-1 {
-    width: 50%; 
-    margin-right: 20px; 
-  }
-
-  .container-2{
-    width: 50%;
-  }
-
-.dashboard{  
+  display: flex;
+  margin: 20px; 
   text-decoration: none;
   font-family: "Orbitron", sans-serif;
   color: white;
+}
+
+.container-1 {
+  width: 50%; 
+  margin-right: 20px; 
+}
+
+.dashboard{  
   display: flex;
   flex-direction: column;
 }
@@ -84,12 +76,13 @@
   list-style: none;
 }
 
-/* .dashbaord-right{
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content: center;
-} */
+.container-2{
+  width: 50%;
+}
+
+.planet-Location{
+  text-align: center;
+}
 </style>
 
 
