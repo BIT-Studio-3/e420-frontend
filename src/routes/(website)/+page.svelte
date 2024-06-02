@@ -1,3 +1,10 @@
+<!-- Page layout -->
+
+
+
+
+
+
 <div class="dashbaord">
  <h1>Dashbaord</h1>
   <div class="user">
