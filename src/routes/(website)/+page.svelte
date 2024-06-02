@@ -52,6 +52,20 @@
 </div> -->
 
 <style>
+.main-container {
+    display: flex;
+    margin: 20px; 
+  }
+
+  .container-1 {
+    width: 50%; 
+    margin-right: 20px; 
+  }
+
+  .container-2{
+    width: 50%;
+  }
+
 .dashboard{  
   text-decoration: none;
   font-family: "Orbitron", sans-serif;
@@ -60,13 +74,13 @@
   flex-direction: column;
 }
 
-.dashbaord ul{
+.dashboard ul{
   display: inline-block;
   width: 50%;
   vertical-align: top;
 }
 
-.dashbaord ul li{
+.dashboard ul li{
   list-style: none;
 }
 
