@@ -93,65 +93,65 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital@0;1&display=swap');
 
-  .orbitron-location-details {
+
+  .location-info {
+    text-decoration: none;
     font-family: "Orbitron", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    background-color: #43455C;
-    color: #3BBA9C;
-    width: 30%;
-    border-radius: 0 20px 20px 0 / 0 25% 25% 0;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-  }
-
-  .poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .poppins-regular-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: italic;
+    color: white;
+    padding: 20px;
+    max-width: 450px;
+    margin-left: 20px; /* Align to the left */
   }
 
   .location-details {
-    width: 30%;
-    background-color: #43455C;
-    color: #3BBA9C;
-    font-family: "Orbitron", sans-serif;
-  }
+  display: none;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 400px; 
+  border: 2px solid white; 
+  background-color: transparent; 
+  box-sizing: border-box;
+  
+  /* Flexbox centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Center text within the box */
+}
 
-  .location-info-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
+.location-info-container {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start; 
+  margin-bottom: 5px;
+  flex-direction: row; 
+}
 
-  .location-info-left, .location-info-right {
-    display: flex;
-    flex-direction: column;
-  }
+.location-info-left,
+.location-info-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  margin-right: 30px; 
+}
 
-  .location-info-left p, .location-info-right p {
+  .location-info-left p,
+  .location-info-right p,
+  #orbital-list p {
+    list-style: none;
     margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+    line-height: 1.5; /* Ensure consistent line height */
   }
 
   #orbital-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin-top: 10px;
   }
 
-  .orbital-list-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 5px;
+  #orbital-list h3 {
+    margin-bottom: 5px;
   }
 
   .loading-message {
