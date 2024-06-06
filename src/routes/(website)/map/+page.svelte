@@ -1,21 +1,34 @@
 <script>
   import { onMount } from "svelte";
-  
+
   let locationInfo = null;
 
   // Hardcoded location info
   locationInfo = {
-    data: {
-      symbol: "X1-HM65-A1",
-      type: "Planet",
-      x: 1024,
-      y: 768,
-      orbitals: [
-        { symbol: "Orbital-1" },
-        { symbol: "Orbital-2" },
-        { symbol: "Orbital-3" }
-      ]
-    }
+    data: [
+      {
+        symbol: "X1-HM65-A1",
+        type: "Planet",
+        x: 1024,
+        y: 768,
+        orbitals: [
+          { symbol: "Orbital-1" },
+          { symbol: "Orbital-2" },
+          { symbol: "Orbital-3" },
+        ],
+      },
+      {
+        symbol: "Test",
+        type: "Planet",
+        x: 1028,
+        y: 500,
+        orbitals: [
+          { symbol: "Orbital-1" },
+          { symbol: "Orbital-2" },
+          { symbol: "Orbital-3" },
+        ],
+      },
+    ],
   };
 
   /*
@@ -51,7 +64,6 @@
 
   onMount(() => {
     setTimeout(() => {
-      document.querySelector(".location-details").style.display = "block";
       document.querySelector(".loading-message").remove();
     }, 300);
   });
@@ -67,8 +79,9 @@
 
     <!-- Render location info if available -->
     {#if locationInfo}
+    {#each locationInfo.data as waypoint}
       <div class="location-details">
-        <h2>{locationInfo.data.symbol}</h2>
+        <h2>{waypoint.symbol}</h2>
         <div class="location-info-container">
           <div class="location-info-left">
             <p>Type:</p>
@@ -76,23 +89,23 @@
             <p>Orbitals:</p>
           </div>
           <div class="location-info-right">
-            <p>{locationInfo.data.type}</p>
-            <p>{locationInfo.data.x}, {locationInfo.data.y}</p>
+            <p>{waypoint.type}</p>
+            <p>{waypoint.x}, {waypoint.y}</p>
           </div>
         </div>
         <div id="orbital-list">
-          {#each locationInfo.data.orbitals as orbital (orbital.symbol)}
+          {#each waypoint.orbitals as orbital (orbital.symbol)}
             <p>{orbital.symbol}</p>
           {/each}
         </div>
       </div>
-    {/if} 
+      {/each}
+    {/if}
   </div>
 </body>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital@0;1&display=swap');
-
+  @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital@0;1&display=swap");
 
   .location-info {
     text-decoration: none;
@@ -104,37 +117,37 @@
   }
 
   .location-details {
-  display: none;
-  padding: 10px;
-  border-radius: 10px;
-  max-width: 400px; 
-  border: 2px solid white; 
-  background-color: transparent; 
-  box-sizing: border-box;
-  
-  /* Flexbox centering */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center; /* Center text within the box */
-}
+    display: none;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 400px;
+    border: 2px solid white;
+    background-color: transparent;
+    box-sizing: border-box;
 
-.location-info-container {
-  display: flex;
-  justify-content: center; 
-  align-items: flex-start; 
-  margin-bottom: 5px;
-  flex-direction: row; 
-}
+    /* Flexbox centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center text within the box */
+  }
 
-.location-info-left,
-.location-info-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; 
-  margin-right: 30px; 
-}
+  .location-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 5px;
+    flex-direction: row;
+  }
+
+  .location-info-left,
+  .location-info-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 30px;
+  }
 
   .location-info-left p,
   .location-info-right p,
@@ -143,7 +156,7 @@
     margin: 0;
     padding: 0;
     margin-bottom: 5px;
-    line-height: 1.5; /* Ensure consistent line height */
+    line-height: 1.5;
   }
 
   #orbital-list {
