@@ -1,3 +1,26 @@
+<!-- Planet images -->
+<script>
+  import { onMount } from 'svelte';
+
+  let bluePlanet = [];
+  const BASE_URL = `https://api.unsplash.com/photos`;
+  const ACCESS_KEY = '3nIPvkJHkQsAzWJu8cdbM95fz8fYLCcsxJMqBF-t_oo'; 
+  const PHOTO_ID = 'prMn9KINLtI'; // Use the correct photo ID from the given URL
+
+  onMount(async () => {
+      try {
+          const response = await fetch(`${BASE_URL}/${PHOTO_ID}?client_id=${ACCESS_KEY}`);
+          if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          bluePlanet = [data]; // Assuming you want to display only one image
+      } catch (error) {
+          console.error('Error fetching image:', error);
+      }
+  });
+</script>
+
 <!-- Page layout -->
 <div class="main-container">
   <div class="container-1">
@@ -27,17 +50,11 @@
   <div class="container-2">
     <div class="planet-Location">
         <h1>You are here</h1>
-        <p>------------------------------------------------<br>
-          <br>
-          <br>
-          <br>
-          <br>
-                        Planet Image<br>
-          <br>
-          <br>
-          <br>
-          <br>
-           ------------------------------------------------</p>
+          {#if bluePlanet.length > 0}
+            <div>
+              <img src={bluePlanet[0].urls.regular} alt={bluePlanet[0].alt_description} />
+            </div>
+          {/if}
            <p class="planetInfo">
             Icy planet with flesh eating bacteria aproach with the <br>
             appropriate safety gear
@@ -83,113 +100,12 @@
 .planet-Location{
   text-align: center;
 }
+
+.planet-Location img {
+  width: 200px; 
+    height: 200px; 
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 </style>
-
-
-<!-- ---------------------------------------------------------------------------- -->
-<!-- Old code -->
-<!-- <script>
-	import { DriverData } from './../../../.svelte-kit/ambient.d.ts';
-  // import Location from "$lib/components/Location.svelte";
-
-  let displayMe = "";
-  function marketplace() {}
-  function loan() {}
-  function fleet() {
-    if (displayMe == "") {
-      displayMe = "fleet";
-    } else {
-      displayMe = "";
-    }
-  }
-  function player_details() {
-    if (displayMe == "") {
-      displayMe = "details";
-    } else {
-      displayMe = "";
-    }
-  }
-</script> -->
-<!-- game front end  -->
-<!-- <div class="game_background">
-  <div class="game_container">
-    <div class="left_game_screen">
-      <div class="button_bar">
-        <a href="/" class="button" on:click={marketplace}>Marketplace</a>
-        when you click the 'marketplace' button-
-        <a href="/" class="button" on:click={loan}>Login</a>
-        <a href="/" class="button" on:click={fleet}>Fleet</a>
-        <a href="/" class="button" on:click={player_details}>Location Details</a
-        >
-      </div>
-        {#if displayMe == "details"} 
-       <Location /> 
-      {:else if displayMe == "fleet"} 
-
-      {:else}
-        <p>{x} is between 5 and 10</p> - 
-      {/if} 
-    </div>
-    <div class="left_game_screen">
-      <img src="..\map-of-planets.png" alt="placeHolderMap" />
-    </div>
-  </div>
-</div> -->
-
-<!-- <style>
-  /* gives the spacing around the games front end */
-  .game_background {
-    padding: 75px;
-  }
-  /* CSS for the Game front end */
-  .game_container {
-    display: flex;
-    gap: 10px;
-    height: 600px;
-  }
-  .left_game_screen {
-    flex: 50%;
-    background-color: #43455C;
-    /* padding: 5px; */
-    border: 2.5px solid black;
-  }
-  .left_game_screen img {
-    width: 100%;
-    height: 100%;
-  }
-  /* CSS styling for the button_bar */
-  .button {
-    text-decoration: none;
-    width: 150px;
-    text-align: center;
-    padding: 10px;
-    gap: 2px;
-    font-family: "Orbitron", sans-serif;
-    font-size: 15.5px;
-    
-    background-color:#43455C;
-    color:white;
-  }
-  .button::after{
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #3BBA9C;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-
-.button:hover::after {
-    width: 100%;
-}
-  
-
-  .button_bar {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: bold;
-  }
-</style> -->
