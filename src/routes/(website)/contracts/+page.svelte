@@ -5,17 +5,17 @@
   let contractArr = null;
   let temp = [];
 
-  const token = "";
+  // const token = "";
 
   const options = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      // Authorization: `Bearer ${token}`,
     },
   };
 
-  console.log(token);
+  // console.log(token);
 
   // Function to accept a contract
   async function acceptContract(contractId, isAccepted) {
@@ -28,7 +28,7 @@
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
+              // Authorization: `Bearer ${token}`,
             },
           },
         );
