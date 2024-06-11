@@ -4,6 +4,7 @@
 
   let contractArr = null;
   let temp = [];
+  let isAccepted = false;
 
   // const token = "";
 
@@ -15,64 +16,68 @@
     },
   };
 
-  // console.log(token);
-
-  // Function to accept a contract
-  async function acceptContract(contractId, isAccepted) {
-    try {
-      // Check if contract is still waiting to be accepted - accept if it hasn't already been accepted
-      if (isAccepted === false) {
-        const response = await fetch(
-          `https://api.spacetraders.io/v2/my/contracts/${contractId}/accept`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              // Authorization: `Bearer ${token}`,
-            },
-          },
-        );
-
-        let json = await response.json();
-        console.log(json);
-
-        if (json.data) {
-          var successMessage = document.createElement("p"); // creates and declares a variable to store the created paragraph element
-          successMessage.textContent = "Accepted Contract Successfully";
-          document.body.appendChild(successMessage); //displays the message on the page
-          // Display any contract accepted success message
-        }
-      } else {
-        var errorMessage = document.createElement("p");
-        errorMessage.textContent = "Contract already accepted";
-        document.body.appendChild(errorMessage);
-        // Displays error already accepted message
-      }
-    } catch (error) {
-      var errorMessage = document.createElement("p");
-      errorMessage.textContent = "An error has occured: " + error.message;
-      document.body.appendChild(errorMessage);
-      // Displays error message
-    }
-  }
-
   onMount(async () => {
     try {
       // Fetch contracts using options sent
       const res = await fetch(
-        "https://api.spacetraders.io/v2/my/contracts",
-        options,
+        "https://error420.onrender.com/api/contracts/4",
+        options
       );
       // store json data
       let json = await res.json();
       temp.push(json.data);
       contractArr = temp;
-      // Uncomment below to see console output
-      // console.log(temp);
+      Uncomment below to see console output
+      console.log(temp);
     } catch (err) {
       console.error(err);
     }
   });
+
+  
+
+  // console.log(token);
+
+  // Function to accept a contract
+  // async function acceptContract(contractId, isAccepted) {
+  //   try {
+  //     // Check if contract is still waiting to be accepted - accept if it hasn't already been accepted
+  //     if (isAccepted === false) {
+  //       const response = await fetch(
+  //         `https://api.spacetraders.io/v2/my/contracts/${contractId}/accept`,
+  //         {
+  //           method: "POST",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             // Authorization: `Bearer ${token}`,
+  //           },
+  //         },
+  //       );
+
+  //       let json = await response.json();
+  //       console.log(json);
+
+  //       if (json.data) {
+  //         var successMessage = document.createElement("p"); // creates and declares a variable to store the created paragraph element
+  //         successMessage.textContent = "Accepted Contract Successfully";
+  //         document.body.appendChild(successMessage); //displays the message on the page
+  //         // Display any contract accepted success message
+  //       }
+  //     } else {
+  //       var errorMessage = document.createElement("p");
+  //       errorMessage.textContent = "Contract already accepted";
+  //       document.body.appendChild(errorMessage);
+  //       // Displays error already accepted message
+  //     }
+  //   } catch (error) {
+  //     var errorMessage = document.createElement("p");
+  //     errorMessage.textContent = "An error has occured: " + error.message;
+  //     document.body.appendChild(errorMessage);
+  //     // Displays error message
+  //   }
+  // }
+
+
 
   // console.log(contractArr);
 </script>
@@ -99,14 +104,12 @@
                 <p>Expires: {contract.deadlineToAccept}</p>
                 <div class="line bottom" />
                 <!-- Use a button to trigger the acceptContract function -->
-                {#if contract.accepted == false}
-                  <button
-                    on:click={() =>
-                      acceptContract(contract.id, contract.accepted)}
+                {#if isAccepted == false}
+                  <button on:click={() => (isAccepted = true)}
                     >Accept Contract</button
                   >
                 {/if}
-                {#if contract.accepted == true}
+                {#if isAccepted == true}
                   <p>Contract Accepted</p>
                 {/if}
               </div>
@@ -130,40 +133,41 @@
 
   .contract-box {
     width: 600px;
-    background-color: rgb(87, 86, 86); /* Changes the background color of the box */
+    background-color: rgb(
+      87,
+      86,
+      86
+    ); /* Changes the background color of the box */
     border-radius: 15px;
     border: 1px solid #ccc;
     box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin: 0px auto;
-    font-family: 'Orbitron', sans-serif;
-    color: #3BBA9C;
+    font-family: "Orbitron", sans-serif;
+    color: #3bba9c;
     padding: 20px;
   }
-
 
   button {
     background-color: white;
     color: black;
     padding: 10px 20px;
     margin: 8px 0;
-    border: none; 
+    border: none;
     cursor: pointer;
     width: 30%;
     border-radius: 25px;
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron", sans-serif;
     color: #000000;
-  } 
+  }
 
   button:hover {
     opacity: 0.8;
-    background-color: #3BBA9C;
+    background-color: #3bba9c;
   }
-  
 
-
-   .contract-content {
+  .contract-content {
     margin: 20px;
-  } 
+  }
 </style>
