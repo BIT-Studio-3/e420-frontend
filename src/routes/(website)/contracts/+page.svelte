@@ -20,7 +20,7 @@
     try {
       // Fetch contracts using options sent
       const res = await fetch(
-        "https://error420.onrender.com/api/contracts",
+        "https://error420.onrender.com/api/contracts/7",
         options
       );
       // store json data
@@ -153,6 +153,11 @@
     font-family: "Orbitron", sans-serif;
     color: #3bba9c;
     padding: 20px;
+  }
+
+  .contracts-row {
+    display: flex;
+    margin-top: 100px;
   }
 
   button {
