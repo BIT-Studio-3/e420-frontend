@@ -2,22 +2,26 @@
 <script>
   import { onMount } from 'svelte';
 
-  let bluePlanet = [];
-  const BASE_URL = `https://api.unsplash.com/photos`;
-  const ACCESS_KEY = '3nIPvkJHkQsAzWJu8cdbM95fz8fYLCcsxJMqBF-t_oo'; 
-  const PHOTO_ID = 'prMn9KINLtI'; // Use the correct photo ID from the given URL
+  let planetImages = [
+    'blue.jpg',
+    'red.jpg',
+    'pink.jpg',
+    'brown.jpg',
+    'brownSand.jpg',
+    'redOrange.jpg',
+    'black.jpg',
+    'lightBlue.jpg'
+  ];
+  
+  let selectedImage = '';
 
-  onMount(async () => {
-      try {
-          const response = await fetch(`${BASE_URL}/${PHOTO_ID}?client_id=${ACCESS_KEY}`);
-          if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          const data = await response.json();
-          bluePlanet = [data]; // Assuming you want to display only one image
-      } catch (error) {
-          console.error('Error fetching image:', error);
-      }
+  function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * planetImages.length);
+    return planetImages[randomIndex];
+  }
+
+  onMount(() => {
+    selectedImage = getRandomImage();
   });
 </script>
 
@@ -50,11 +54,9 @@
   <div class="container-2">
     <div class="planet-Location">
         <h1>You are here</h1>
-          {#if bluePlanet.length > 0}
             <div>
-              <img src={bluePlanet[0].urls.regular} alt={bluePlanet[0].alt_description} />
+              <img src={`planets/${selectedImage}`} alt={selectedImage} />
             </div>
-          {/if}
            <p class="planetInfo">
             Icy planet with flesh eating bacteria aproach with the <br>
             appropriate safety gear
@@ -103,9 +105,9 @@
 
 .planet-Location img {
   width: 200px; 
-    height: 200px; 
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 200px; 
+  border-radius: 50%;    
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 </style>
