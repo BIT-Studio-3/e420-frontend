@@ -127,7 +127,6 @@
     white-space: wrap;
     overflow: hidden;
   }
-
   /* hover effect for button */
   button:hover {
     opacity: 0.8;
@@ -136,13 +135,10 @@
   .login{
     display: flex;
     justify-content: space-between;
-    
   }
-
   .register-link{
     margin-top: 15px;
   }
-
   .outer-box {
     font-family: 'Orbitron', sans-serif;
   }
