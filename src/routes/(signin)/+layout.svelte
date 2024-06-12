@@ -12,7 +12,7 @@
 </div>
 
   <style>
-      /* Applying box-sizing and margin properties to all elements */
+  /* Applying box-sizing and margin properties to all elements */
   * {
     box-sizing: border-box;
     margin: 0;
