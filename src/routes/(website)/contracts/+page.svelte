@@ -20,14 +20,13 @@
     try {
       // Fetch contracts using options sent
       const res = await fetch(
-        "https://error420.onrender.com/api/contracts/4",
+        "https://error420.onrender.com/api/contracts",
         options
       );
       // store json data
       let json = await res.json();
       temp.push(json.data);
       contractArr = temp;
-      Uncomment below to see console output
       console.log(temp);
     } catch (err) {
       console.error(err);
@@ -92,16 +91,23 @@
               <div class="contract-content">
                 <h1 class="type">{contract.type}</h1>
                 <div class="line top" />
-                <p>Contractor: {contract.factionSymbol}</p>
-                <p>Cargo Needed: {contract.terms.deliver[0].tradeSymbol}</p>
+                <p>User ID: {contract.userId}</p>
+                <p>Destination: {contract.destinationSymbol}</p>
                 <p>
-                  Destination: {contract.terms.deliver[0].destinationSymbol}
+                  Deadline to Accept: {contract.deadlineToAccept}
                 </p>
                 <p>
-                  Reward: {contract.terms.payment.onAccepted} + {contract.terms
-                    .payment.onFulfilled}
+                  Accepted: {contract.accepted ? 'Yes' : 'No'}
                 </p>
-                <p>Expires: {contract.deadlineToAccept}</p>
+                <p>Fulfilled: {contract.fulfilled ? 'Yes' : 'No'}</p>
+                <!-- Displaying contract terms -->
+                {#each contract.terms as term}
+                <div class="term">
+                  <p>Deadline: {term.deadline}</p>
+                  <p>Payment: {term.payment}</p>
+                  <p>Cargo: {term.cargo}</p>
+                </div>
+                {/each}
                 <div class="line bottom" />
                 <!-- Use a button to trigger the acceptContract function -->
                 {#if isAccepted == false}
