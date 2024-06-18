@@ -1,195 +1,134 @@
+<!-- Planet images -->
+<script>
+  import { onMount } from "svelte";
+
+  let planetImages = [
+    "blue.jpg",
+    "red.jpg",
+    "pink.jpg",
+    "brown.jpg",
+    "brownSand.jpg",
+    "redOrange.jpg",
+    "black.jpg",
+    "lightBlue.jpg",
+  ];
+
+  let agentArr = null;
+  let temp = [];
+  let selectedImage = "";
+
+  function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * planetImages.length);
+    return planetImages[randomIndex];
+  }
+
+  onMount(async () => {
+    try {
+      selectedImage = getRandomImage();
+      const response = await fetch(
+        "https://error420.onrender.com/api/agents/7",
+        {
+          method: "GET",
+        }
+      );
+
+      const responseData = await response.json();
+      temp.push(responseData.data);
+      agentArr = temp;
+      console.log("Agent information received successfully:");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+    console.log(agentArr);
+  });
+</script>
+
 <!-- Page layout -->
 <div class="main-container">
   <div class="container-1">
     <div class="dashboard">
       <h1>Dashboard</h1>
-      <div class="user">
-        <ul>
-          <li>Username: sophie.skyyye</li>
-          <li>Credits:  116,000</li>
-        </ul>
-      </div>
-      <div class="active-Loans">
-        <h3>Active Loans</h3>
-        <ul>
-          <li>Type:             Starter Loan</li>
-          <li>Due:              05/11/2024</li>
-          <li>Repayment Amount: 280,000</li>
-          <li>Status:           Current</li>
-        </ul>
-      </div>
-      <div class="owned-Ships">
-        <h3>Owned Ships</h3>
-        <p>ship name</p>
-      </div>
+      {#if agentArr}
+        {#each agentArr as agent}
+          <div class="user">
+            <ul style="">
+              <li>Username: {agent.username}</li>
+              <li><p style="color: pink">Credits:</p> {agent.credits}</li>
+            </ul>
+          </div>
+          <div class="active-Loans">
+            <h3>Active Loans</h3>
+            <ul>
+              <li>Type: Starter Loan</li>
+              <li>Due: 05/11/2024</li>
+              <li>Repayment Amount: 280,000</li>
+              <li>Status: Current</li>
+            </ul>
+          </div>
+          <div class="owned-Ships">
+            <h3>Owned Ships</h3>
+            <p>ship name</p>
+          </div>
+        {/each}
+      {/if}
     </div>
   </div>
   <div class="container-2">
     <div class="planet-Location">
-        <h1>You are here</h1>
-        <p>------------------------------------------------<br>
-          <br>
-          <br>
-          <br>
-          <br>
-                        Planet Image<br>
-          <br>
-          <br>
-          <br>
-          <br>
-           ------------------------------------------------</p>
-           <p class="planetInfo">
-            Icy planet with flesh eating bacteria aproach with the <br>
-            appropriate safety gear
-           </p>
+      <h1>You are here</h1>
+      <div>
+        <img src={`planets/${selectedImage}`} alt={selectedImage} />
+      </div>
+      <p class="planetInfo">
+        Icy planet with flesh eating bacteria aproach with the <br />
+        appropriate safety gear
+      </p>
     </div>
   </div>
 </div>
 
-
 <style>
-.main-container {
-  display: flex;
-  margin: 20px; 
-  text-decoration: none;
-  font-family: "Orbitron", sans-serif;
-  color: white;
-}
-
-.container-1 {
-  width: 50%; 
-  margin-right: 20px; 
-}
-
-.dashboard{  
-  display: flex;
-  flex-direction: column;
-}
-
-.dashboard ul{
-  display: inline-block;
-  width: 50%;
-  vertical-align: top;
-}
-
-.dashboard ul li{
-  list-style: none;
-}
-
-.container-2{
-  width: 50%;
-}
-
-.planet-Location{
-  text-align: center;
-}
-</style>
-
-
-<!-- ---------------------------------------------------------------------------- -->
-<!-- Old code -->
-<!-- <script>
-	import { DriverData } from './../../../.svelte-kit/ambient.d.ts';
-  // import Location from "$lib/components/Location.svelte";
-
-  let displayMe = "";
-  function marketplace() {}
-  function loan() {}
-  function fleet() {
-    if (displayMe == "") {
-      displayMe = "fleet";
-    } else {
-      displayMe = "";
-    }
-  }
-  function player_details() {
-    if (displayMe == "") {
-      displayMe = "details";
-    } else {
-      displayMe = "";
-    }
-  }
-</script> -->
-<!-- game front end  -->
-<!-- <div class="game_background">
-  <div class="game_container">
-    <div class="left_game_screen">
-      <div class="button_bar">
-        <a href="/" class="button" on:click={marketplace}>Marketplace</a>
-        when you click the 'marketplace' button-
-        <a href="/" class="button" on:click={loan}>Login</a>
-        <a href="/" class="button" on:click={fleet}>Fleet</a>
-        <a href="/" class="button" on:click={player_details}>Location Details</a
-        >
-      </div>
-        {#if displayMe == "details"} 
-       <Location /> 
-      {:else if displayMe == "fleet"} 
-
-      {:else}
-        <p>{x} is between 5 and 10</p> - 
-      {/if} 
-    </div>
-    <div class="left_game_screen">
-      <img src="..\map-of-planets.png" alt="placeHolderMap" />
-    </div>
-  </div>
-</div> -->
-
-<!-- <style>
-  /* gives the spacing around the games front end */
-  .game_background {
-    padding: 75px;
-  }
-  /* CSS for the Game front end */
-  .game_container {
+  .main-container {
     display: flex;
-    gap: 10px;
-    height: 600px;
-  }
-  .left_game_screen {
-    flex: 50%;
-    background-color: #43455C;
-    /* padding: 5px; */
-    border: 2.5px solid black;
-  }
-  .left_game_screen img {
-    width: 100%;
-    height: 100%;
-  }
-  /* CSS styling for the button_bar */
-  .button {
+    margin: 20px;
     text-decoration: none;
-    width: 150px;
-    text-align: center;
-    padding: 10px;
-    gap: 2px;
     font-family: "Orbitron", sans-serif;
-    font-size: 15.5px;
-    
-    background-color:#43455C;
-    color:white;
+    color: white;
   }
-  .button::after{
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #3BBA9C;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
 
-.button:hover::after {
-    width: 100%;
-}
-  
+  .container-1 {
+    width: 50%;
+    margin-right: 20px;
+  }
 
-  .button_bar {
+  .dashboard {
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: bold;
+    flex-direction: column;
   }
-</style> -->
+
+  .dashboard ul {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+  }
+
+  .dashboard ul li {
+    list-style: none;
+  }
+
+  .container-2 {
+    width: 50%;
+  }
+
+  .planet-Location {
+    text-align: center;
+  }
+
+  .planet-Location img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+</style>
