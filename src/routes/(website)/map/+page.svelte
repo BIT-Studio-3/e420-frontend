@@ -1,17 +1,40 @@
 <script>
-  //This will be he java script code for the fetching of the location
   import { onMount } from "svelte";
-  // import { userDetails } from "$lib/components/tokenStore.js";
- 
-  // setTimeout(async() => { 
-  //   document.querySelector(".location-info").remove();
-  // }, 3000);
- 
 
   let locationInfo = null;
+
+  // Hardcoded location info
+  locationInfo = {
+    data: [
+      {
+        symbol: "X1-HM65-A1",
+        type: "Planet",
+        x: 1024,
+        y: 768,
+        orbitals: [
+          { symbol: "Orbital-1" },
+          { symbol: "Orbital-2" },
+          { symbol: "Orbital-3" },
+        ],
+      },
+      {
+        symbol: "Test",
+        type: "Planet",
+        x: 1028,
+        y: 500,
+        orbitals: [
+          { symbol: "Orbital-1" },
+          { symbol: "Orbital-2" },
+          { symbol: "Orbital-3" },
+        ],
+      },
+    ],
+  };
+
+  /*
+  // Uncomment and use this if you want to fetch data from the API
   const locationSymbol = "X1-HM65-A1"; // headquarters symbol
   const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiSEpGSFVFRklKRklVIiwidmVyc2lvbiI6InYyLjIuMCIsInJlc2V0X2RhdGUiOiIyMDI0LTA0LTA5IiwiaWF0IjoxNzEyNzQyOTQ2LCJzdWIiOiJhZ2VudC10b2tlbiJ9.rtPWY0LJsrgkJlR4SHKcVw7UkDpz86kcB13Z7cx5Tl6vL8jyd-C2vJKjbKQZEgKgY6QuAkTq-lSWgx4HY78SaD5Pyx7QF9vYyrrbOxSq2iqG8b2E0t4KmC4m9nEWeDbqvMNla-f0bm96Y_oSGnAUYkM2cwm-1_PBVOoXlZiF01-7bsrB0ELOKa9MX77NvDv-d7iFVpWQF5A2PGatzVwNjZSLnWr20rJrg_Mvb3nno8AV_rp6DHVinpJkcQuJNdOe6fDu0shQoOw1sJcnM-KKm-sthYiX7LU3cEK-lhKn4MqeK__X81pDO3P0TYduVm4j62tConj66MM7MyicrOY_nw";
- 
 
   onMount(async () => {
     try {
@@ -26,7 +49,7 @@
       );
 
       const responseData = await response.json();
-      locationInfo = responseData; // Assign fetched data to the 'data' variable
+      locationInfo = responseData; // Assign fetched data to the 'locationInfo' variable
       console.log("Location information received successfully:");
       setTimeout(() => {
         document.querySelector(".location-details").style.display = "block";
@@ -37,23 +60,28 @@
     }
     console.log(locationInfo);
   });
+  */
+
+  onMount(() => {
+    setTimeout(() => {
+      document.querySelector(".loading-message").remove();
+    }, 300);
+  });
 </script>
 
 <body>
   <div class="location-info">
-    <!-- this needs to be replaced with an actual loading animation -->
+    <!-- Loading message -->
     <div class="loading-message">
       <h1>Loading...</h1>
       <p>Fetching location information...</p>
     </div>
 
-    <!-- The {#if locationInfo} directive is a conditional rendering block (in Svelte) that checks 
-    if the locationInfo variable is truthy (i.e., not null, undefined, or an empty string). 
-    If the condition is true, Svelte will render the content inside the block. 
-    If the condition is false, Svelte will skip over the block and not render its contents-->
+    <!-- Render location info if available -->
     {#if locationInfo}
-      <div class= "location-details">
-        <h2>{locationInfo.data.symbol}</h2>
+    {#each locationInfo.data as waypoint}
+      <div class="location-details">
+        <h2>{waypoint.symbol}</h2>
         <div class="location-info-container">
           <div class="location-info-left">
             <p>Type:</p>
@@ -61,89 +89,88 @@
             <p>Orbitals:</p>
           </div>
           <div class="location-info-right">
-            <p>{locationInfo.data.type}</p>
-            <p>{locationInfo.data.x}, {locationInfo.data.y}</p>
+            <p>{waypoint.type}</p>
+            <p>{waypoint.x}, {waypoint.y}</p>
           </div>
         </div>
         <div id="orbital-list">
-          {#each locationInfo.data.orbitals as orbital (orbital.symbol)}
+          {#each waypoint.orbitals as orbital (orbital.symbol)}
             <p>{orbital.symbol}</p>
           {/each}
         </div>
       </div>
-    {/if} 
+      {/each}
+    {/if}
   </div>
 </body>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital@0;1&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital@0;1&display=swap");
 
-  .orbitron-location-details {
-  font-family: "Orbitron", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  background-color: #43455C;
-  color: #3BBA9C;
-  width: 30%;
-  
-  border-radius: 0 20px 20px 0 / 0 25% 25% 0;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  .location-info {
+    text-decoration: none;
+    font-family: "Orbitron", sans-serif;
+    color: white;
+    padding: 20px;
+    max-width: 450px;
+    margin-left: 20px; /* Align to the left */
   }
 
-  .poppins-regular {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+  .location-details {
+    display: none;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 400px;
+    border: 2px solid white;
+    background-color: transparent;
+    box-sizing: border-box;
 
-.poppins-regular-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-.location-details {
-  
-    width: 30%;
-    background-color: #43455C;
-    color: #3BBA9C;
-    font-family: "Orbitron", sans-serif;
-}
+    /* Flexbox centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center text within the box */
+  }
 
-.location-info-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
+  .location-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 5px;
+    flex-direction: row;
+  }
 
-.location-info-left,.location-info-right {
-  display: flex;
-  flex-direction: column;
-} 
+  .location-info-left,
+  .location-info-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 30px;
+  }
 
-.location-info-left p,.location-info-right p {
-  margin: 0;
-}
+  .location-info-left p,
+  .location-info-right p,
+  #orbital-list p {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+    line-height: 1.5;
+  }
 
-#orbital-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+  #orbital-list {
+    margin-top: 10px;
+  }
 
-.orbital-list-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 5px;
-}
+  #orbital-list h3 {
+    margin-bottom: 5px;
+  }
 
-.loading-message {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+  .loading-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 </style>
